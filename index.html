@@ -58,7 +58,7 @@
     .hero-container { max-width: 1200px; margin: 30px auto 60px; padding: 0 24px; }
     .beranda-head { margin-bottom: 24px; }
     .beranda-head h2 { font-size: 26px; color: #044e39; font-weight: 800; }
-    .beranda-head p { font-size: 14px; color: var(--text-muted); }
+    .beranda-head p { font-size: 14px; color: var(--text-muted); margin-top: 4px; }
     .grid-postingan-beranda { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
     .card-postingan { background: #ffffff; border-radius: 18px; border: 1px solid #f1f5f9; box-shadow: 0 6px 20px rgba(0,0,0,0.03); overflow: hidden; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; display: flex; flex-direction: column; }
     .card-postingan:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
@@ -66,7 +66,9 @@
     .post-foto { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
     .card-postingan:hover .post-foto { transform: scale(1.03); }
     .post-body { padding: 20px; display: flex; flex-direction: column; flex: 1; }
-    .post-tagline { font-size: 11px; font-weight: 800; letter-spacing: 1px; color: var(--primary); text-transform: uppercase; margin-bottom: 8px; }
+    .post-meta-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font-size: 11px; }
+    .post-tagline { font-weight: 800; letter-spacing: 1px; color: var(--primary); text-transform: uppercase; }
+    .post-tanggal-badge { color: #94a3b8; font-weight: 600; }
     .post-judul { font-size: 18px; font-weight: 800; color: #0f172a; line-height: 1.35; margin-bottom: 12px; flex: 1; }
     .post-baca-link { font-size: 13px; font-weight: 700; color: var(--primary); display: inline-flex; align-items: center; gap: 4px; }
 
@@ -99,7 +101,7 @@
     .agenda-desc { font-size: 13px; color: #475569; line-height: 1.6; margin-bottom: 18px; flex: 1; }
     .btn-agenda-daftar { display: inline-block; text-align: center; background: var(--primary); color: white; padding: 10px 18px; border-radius: 20px; font-size: 13px; font-weight: 700; text-decoration: none; transition: 0.2s; border: none; }
 
-    /* DASHBOARD 3 KARTU KAS (TOTAL SALDO, MASUK, KELUAR) */
+    /* DASHBOARD KAS RINGKASAN */
     .kas-summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 20px; }
     .kas-card-summary { padding: 18px 20px; border-radius: 14px; border: 1px solid #e2e8f0; display: flex; flex-direction: column; gap: 4px; }
     .kas-card-label { font-size: 11px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; }
@@ -128,6 +130,11 @@
     input, select, textarea { width: 100%; padding: 9px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 13px; }
     input[type="file"] { padding: 6px; background: #fff; }
     textarea { height: 80px; resize: vertical; }
+
+    /* WIDGET KONTROL TIPOGRAFI / FONT */
+    .typo-controls { background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 10px; padding: 12px 14px; margin: 12px 0; }
+    .typo-controls-title { font-size: 11px; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
+    .typo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; }
 
     .btn-main { background: #065f46; color: white; padding: 10px 22px; border-radius: 20px; text-decoration: none; font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; gap: 8px; border: none; cursor: pointer; }
     .btn-main:hover { background: #044e39; }
@@ -217,18 +224,21 @@
   <div id="page-beranda" class="page-section active-page">
     <main class="hero-container">
       <div class="beranda-head">
-        <h2>Kabar & Berita Ranting</h2>
-        <p>Warta kegiatan, informasi terkini, dan program PR IPNU IPPNU Desa Lembor</p>
+        <h2 id="txt-beranda-head-judul">Kabar & Berita Ranting</h2>
+        <p id="txt-beranda-head-sub">Warta kegiatan, informasi terkini, dan program PR IPNU IPPNU Desa Lembor</p>
       </div>
       <div class="grid-postingan-beranda" id="wadah-postingan-beranda"></div>
     </main>
   </div>
 
-  <!-- MODAL BACA POSTINGAN LENGKAP -->
+  <!-- MODAL BACA LENGKAP POSTINGAN -->
   <div id="modal-detail-post" class="modal-overlay">
     <div class="modal-box" style="max-width: 750px;">
       <div class="modal-head">
-        <span id="detail-post-meta" style="font-size: 11px; font-weight: 800; color: var(--primary); text-transform: uppercase;"></span>
+        <div>
+          <span id="detail-post-meta" style="font-size: 11px; font-weight: 800; color: var(--primary); text-transform: uppercase;"></span>
+          <span id="detail-post-tgl" style="font-size: 12px; color: #94a3b8; margin-left: 10px;"></span>
+        </div>
         <button class="btn-close-modal" onclick="tutupDetailPost()">×</button>
       </div>
       <div id="detail-post-img-box" style="width: 100%; max-height: 380px; overflow: hidden; border-radius: 14px; margin-bottom: 20px; background: #f1f5f9;">
@@ -244,7 +254,7 @@
     <section class="section-wrap">
       <div class="section-header">
         <h2 id="txt-tentang-judul">Tentang PR IPNU IPPNU Lembor</h2>
-        <p>Mengenal sejarah, nilai, dan arah perjuangan pelajar Nahdlatul Ulama Desa Lembor</p>
+        <p id="txt-tentang-subjudul">Mengenal sejarah, nilai, dan arah perjuangan pelajar Nahdlatul Ulama Desa Lembor</p>
       </div>
 
       <div class="card-box">
@@ -394,9 +404,9 @@
 
         <div class="admin-content">
           
-          <!-- 1. HEADER -->
+          <!-- 1. HEADER (LENGKAP TIPOGRAFI) -->
           <div id="adm-header" class="adm-tab-section">
-            <h4 style="margin-bottom: 14px; color: var(--primary);">Atur Logo Organisasi & Header</h4>
+            <h4 style="margin-bottom: 14px; color: var(--primary);">Atur Logo Organisasi & Tipografi Header</h4>
             <form onsubmit="handleSimpanCMS(event)">
               <div class="form-grid">
                 <div class="form-group">
@@ -414,12 +424,88 @@
                 <label>Teks Judul Organisasi di Samping Logo</label>
                 <input type="text" id="cms-brand-text" placeholder="Contoh: PR IPNU IPPNU LEMBOR" required>
               </div>
+
+              <!-- Tipografi Header -->
+              <div class="typo-controls">
+                <div class="typo-controls-title">Pengaturan Huruf Judul Header</div>
+                <div class="typo-grid">
+                  <div>
+                    <label>Jenis Font</label>
+                    <select id="f-header-family">
+                      <option value="inherit">Sistem Default</option>
+                      <option value="'Poppins', sans-serif">Poppins</option>
+                      <option value="'Montserrat', sans-serif">Montserrat</option>
+                      <option value="'Inter', sans-serif">Inter</option>
+                      <option value="'Playfair Display', serif">Playfair Display (Serif)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label>Ukuran (px)</label>
+                    <input type="number" id="f-header-size" min="10" max="30" value="13">
+                  </div>
+                  <div>
+                    <label>Ketebalan</label>
+                    <select id="f-header-weight">
+                      <option value="400">Normal (Biasa)</option>
+                      <option value="600" selected>Semi Bold</option>
+                      <option value="700">Bold (Tebal)</option>
+                      <option value="800">Extra Bold</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
               <button type="submit" class="btn-main" style="margin-top: 10px;">💾 Simpan Pengaturan Header</button>
             </form>
           </div>
 
-          <!-- 2. BERANDA: INPUT POSTINGAN DENGAN DESKRIPSI LENGKAP -->
+          <!-- 2. BERANDA: ATUR HEADER SEKSI + INPUT POSTINGAN DENGAN TANGGAL -->
           <div id="adm-beranda" class="adm-tab-section" style="display: none;">
+            <!-- Form Edit Judul & Subjudul Beranda Publik + Tipografi -->
+            <form onsubmit="handleSimpanCMS(event)" style="background: #f8fafc; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 24px;">
+              <h5 style="color: var(--primary); margin-bottom: 12px;">Pengaturan Teks Bagian Atas Beranda</h5>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Teks Judul Atas</label>
+                  <input type="text" id="cms-beranda-judul" value="Kabar & Berita Ranting" required>
+                </div>
+                <div class="form-group">
+                  <label>Teks Deskripsi / Keterangan di Bawahnya</label>
+                  <input type="text" id="cms-beranda-sub" value="Warta kegiatan, informasi terkini, dan program PR IPNU IPPNU Desa Lembor" required>
+                </div>
+              </div>
+
+              <div class="typo-controls">
+                <div class="typo-controls-title">Pengaturan Huruf Judul Beranda</div>
+                <div class="typo-grid">
+                  <div>
+                    <label>Jenis Font</label>
+                    <select id="f-beranda-family">
+                      <option value="inherit">Sistem Default</option>
+                      <option value="'Poppins', sans-serif">Poppins</option>
+                      <option value="'Montserrat', sans-serif">Montserrat</option>
+                      <option value="'Inter', sans-serif">Inter</option>
+                      <option value="'Playfair Display', serif">Playfair Display (Serif)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label>Ukuran (px)</label>
+                    <input type="number" id="f-beranda-size" min="18" max="44" value="26">
+                  </div>
+                  <div>
+                    <label>Ketebalan</label>
+                    <select id="f-beranda-weight">
+                      <option value="400">Normal (Biasa)</option>
+                      <option value="600">Semi Bold</option>
+                      <option value="700">Bold (Tebal)</option>
+                      <option value="800" selected>Extra Bold</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn-main">💾 Simpan Teks & Font Beranda</button>
+            </form>
+
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
               <h4 style="color: var(--primary);">Daftar Postingan Beranda</h4>
               <button class="btn-main" onclick="bukaFormBeranda()">➕ Tambah Postingan Baru</button>
@@ -435,13 +521,17 @@
                     <label>Judul Postingan *</label>
                     <input type="text" id="b-judul" placeholder="Contoh: Bertumbuh Bersama. Menguatkan Karakter Pelajar Lembor" required>
                   </div>
-                  <div class="form-group" style="grid-column: 1 / -1;">
-                    <label>Tagline / Kategori Kecil (Opsional)</label>
+                  <div class="form-group">
+                    <label>Tagline / Kategori (Opsional)</label>
                     <input type="text" id="b-tagline" placeholder="Contoh: Warta Ranting / Kaderisasi">
+                  </div>
+                  <div class="form-group">
+                    <label>Tanggal Kegiatan Dilakukan *</label>
+                    <input type="date" id="b-tanggal" required>
                   </div>
                   <div class="form-group" style="grid-column: 1 / -1;">
                     <label>Deskripsi / Isi Lengkap Postingan *</label>
-                    <textarea id="b-desc" placeholder="Tuliskan isi lengkap postingan atau berita di sini..." style="height: 120px;" required></textarea>
+                    <textarea id="b-desc" placeholder="Tuliskan isi lengkap warta/kegiatan di sini..." style="height: 120px;" required></textarea>
                   </div>
                   <div class="form-group" style="grid-column: 1 / -1;">
                     <label>Foto Sampul / Banner (Dari Galeri)</label>
@@ -460,6 +550,7 @@
                   <tr>
                     <th>Foto</th>
                     <th>Judul Postingan</th>
+                    <th>Tanggal</th>
                     <th>Tagline</th>
                     <th>Cuplikan Isi</th>
                     <th style="width: 80px; text-align: center;">Aksi</th>
@@ -470,10 +561,54 @@
             </div>
           </div>
 
-          <!-- 3. TENTANG & VISI-MISI -->
+          <!-- 3. TENTANG & VISI-MISI (LENGKAP EDIT SUB-JUDUL & TIPOGRAFI) -->
           <div id="adm-tentang" class="adm-tab-section" style="display: none;">
+            <form onsubmit="handleSimpanCMS(event)" style="background: #f8fafc; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 24px;">
+              <h5 style="color: var(--primary); margin-bottom: 12px;">Pengaturan Teks & Font Seksi Tentang</h5>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Judul Seksi Tentang</label>
+                  <input type="text" id="cms-tentang-judul" value="Tentang PR IPNU IPPNU Lembor" required>
+                </div>
+                <div class="form-group">
+                  <label>Deskripsi di Bawah Judul (Subjudul)</label>
+                  <input type="text" id="cms-tentang-sub" value="Mengenal sejarah, nilai, dan arah perjuangan pelajar Nahdlatul Ulama Desa Lembor" required>
+                </div>
+              </div>
+
+              <div class="typo-controls">
+                <div class="typo-controls-title">Pengaturan Huruf Judul Seksi Tentang</div>
+                <div class="typo-grid">
+                  <div>
+                    <label>Jenis Font</label>
+                    <select id="f-tentang-family">
+                      <option value="inherit">Sistem Default</option>
+                      <option value="'Poppins', sans-serif">Poppins</option>
+                      <option value="'Montserrat', sans-serif">Montserrat</option>
+                      <option value="'Inter', sans-serif">Inter</option>
+                      <option value="'Playfair Display', serif">Playfair Display (Serif)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label>Ukuran (px)</label>
+                    <input type="number" id="f-tentang-size" min="18" max="44" value="28">
+                  </div>
+                  <div>
+                    <label>Ketebalan</label>
+                    <select id="f-tentang-weight">
+                      <option value="400">Normal (Biasa)</option>
+                      <option value="600">Semi Bold</option>
+                      <option value="700">Bold (Tebal)</option>
+                      <option value="800" selected>Extra Bold</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn-main">💾 Simpan Judul & Font Tentang</button>
+            </form>
+
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
-              <h4 style="color: var(--primary);">Tentang, Visi & Misi Organisasi</h4>
+              <h4 style="color: var(--primary);">Profil, Visi & Misi Organisasi</h4>
               <button class="btn-main" onclick="bukaFormTentang()">➕ Edit / Tambah Profil & Visi Misi</button>
             </div>
 
@@ -520,8 +655,45 @@
             </div>
           </div>
 
-          <!-- 4. PENGURUS -->
+          <!-- 4. PENGURUS (LENGKAP TIPOGRAFI) -->
           <div id="adm-pengurus" class="adm-tab-section" style="display: none;">
+            <form onsubmit="handleSimpanCMS(event)" style="background: #f8fafc; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 24px;">
+              <h5 style="color: var(--primary); margin-bottom: 12px;">Pengaturan Judul & Font Seksi Pengurus</h5>
+              <div class="form-group">
+                <label>Judul Seksi Pengurus</label>
+                <input type="text" id="cms-pengurus-judul" value="Jajaran Pengurus Ranting" required>
+              </div>
+              <div class="typo-controls">
+                <div class="typo-controls-title">Pengaturan Huruf Judul Pengurus</div>
+                <div class="typo-grid">
+                  <div>
+                    <label>Jenis Font</label>
+                    <select id="f-pengurus-family">
+                      <option value="inherit">Sistem Default</option>
+                      <option value="'Poppins', sans-serif">Poppins</option>
+                      <option value="'Montserrat', sans-serif">Montserrat</option>
+                      <option value="'Inter', sans-serif">Inter</option>
+                      <option value="'Playfair Display', serif">Playfair Display (Serif)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label>Ukuran (px)</label>
+                    <input type="number" id="f-pengurus-size" min="18" max="44" value="28">
+                  </div>
+                  <div>
+                    <label>Ketebalan</label>
+                    <select id="f-pengurus-weight">
+                      <option value="400">Normal (Biasa)</option>
+                      <option value="600">Semi Bold</option>
+                      <option value="700">Bold (Tebal)</option>
+                      <option value="800" selected>Extra Bold</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn-main">💾 Simpan Judul & Font Pengurus</button>
+            </form>
+
             <h4 style="margin-bottom: 14px; color: var(--primary);">Kelola Pengurus</h4>
             <h5 id="form-pengurus-title" style="color: #334155; margin-bottom: 8px;">Tambah Anggota Pengurus Baru</h5>
             <form id="form-pengurus" onsubmit="handleSimpanPengurus(event)">
@@ -548,8 +720,45 @@
             </div>
           </div>
 
-          <!-- 5. AGENDA -->
+          <!-- 5. AGENDA (LENGKAP TIPOGRAFI) -->
           <div id="adm-agenda" class="adm-tab-section" style="display: none;">
+            <form onsubmit="handleSimpanCMS(event)" style="background: #f8fafc; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 24px;">
+              <h5 style="color: var(--primary); margin-bottom: 12px;">Pengaturan Judul & Font Seksi Agenda</h5>
+              <div class="form-group">
+                <label>Judul Seksi Agenda</label>
+                <input type="text" id="cms-agenda-judul" value="Agenda & Program Kerja" required>
+              </div>
+              <div class="typo-controls">
+                <div class="typo-controls-title">Pengaturan Huruf Judul Agenda</div>
+                <div class="typo-grid">
+                  <div>
+                    <label>Jenis Font</label>
+                    <select id="f-agenda-family">
+                      <option value="inherit">Sistem Default</option>
+                      <option value="'Poppins', sans-serif">Poppins</option>
+                      <option value="'Montserrat', sans-serif">Montserrat</option>
+                      <option value="'Inter', sans-serif">Inter</option>
+                      <option value="'Playfair Display', serif">Playfair Display (Serif)</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label>Ukuran (px)</label>
+                    <input type="number" id="f-agenda-size" min="18" max="44" value="28">
+                  </div>
+                  <div>
+                    <label>Ketebalan</label>
+                    <select id="f-agenda-weight">
+                      <option value="400">Normal (Biasa)</option>
+                      <option value="600">Semi Bold</option>
+                      <option value="700">Bold (Tebal)</option>
+                      <option value="800" selected>Extra Bold</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <button type="submit" class="btn-main">💾 Simpan Judul & Font Agenda</button>
+            </form>
+
             <h4 style="margin-bottom: 14px; color: var(--primary);">Kelola Agenda Kegiatan</h4>
             <h5 id="form-agenda-title" style="color: #334155; margin-bottom: 8px;">Tambah Agenda Baru</h5>
             <form id="form-agenda" onsubmit="handleSimpanAgenda(event)">
@@ -633,11 +842,10 @@
             </div>
           </div>
 
-          <!-- 8. KAS KEUANGAN (DILENGKAPI 3 DASHBOARD: TOTAL SALDO, UANG MASUK, UANG KELUAR) -->
+          <!-- 8. KAS KEUANGAN (3 DASHBOARD) -->
           <div id="adm-kas" class="adm-tab-section" style="display: none;">
             <h4 style="margin-bottom: 14px; color: var(--primary);">Catatan Kas Organisasi</h4>
 
-            <!-- 3 DASHBOARD RINGKASAN KAS -->
             <div class="kas-summary-grid">
               <div class="kas-card-summary kas-saldo">
                 <span class="kas-card-label">💰 Total Saldo Kas</span>
@@ -653,7 +861,6 @@
               </div>
             </div>
 
-            <!-- Form Pencatatan Kas -->
             <form id="form-kas" onsubmit="handleSimpanKas(event)">
               <input type="hidden" id="edit-id-kas" value="">
               <div class="form-grid">
@@ -663,12 +870,11 @@
                   <select id="kas-jenis"><option value="Masuk">Pemasukan (+)</option><option value="Keluar">Pengeluaran (-)</option></select>
                 </div>
                 <div class="form-group"><label>Nominal (Rp)</label><input type="number" id="kas-jumlah" placeholder="Contoh: 50000" min="1" required></div>
-                <div class="form-group" style="grid-column: 1 / -1;"><label>Keterangan Transaksi</label><input type="text" id="kas-keterangan" placeholder="Contoh: Iuran rutinan anggota" required></div>
+                <div class="form-group" style="grid-column: 1 / -1;"><label>Keterangan Transaksi</label><input type="text" id="kas-keterangan" placeholder="Contoh: Iuran rutinan" required></div>
               </div>
               <button type="submit" id="btn-simpan-kas" class="btn-main">Catat Transaksi Kas</button>
               <button type="button" id="btn-batal-kas" class="btn-batal" onclick="resetFormKas()">Batal</button>
             </form>
-
             <div style="overflow-x: auto; margin-top: 15px;">
               <table>
                 <thead><tr><th>Tanggal</th><th>Keterangan</th><th>Jenis</th><th>Nominal</th><th style="width: 80px; text-align: center;">Aksi</th></tr></thead>
@@ -731,6 +937,7 @@
     if(document.getElementById('kas-tanggal')) document.getElementById('kas-tanggal').value = hariIni;
     if(document.getElementById('s-tanggal')) document.getElementById('s-tanggal').value = hariIni;
     if(document.getElementById('a-tanggal')) document.getElementById('a-tanggal').value = hariIni;
+    if(document.getElementById('b-tanggal')) document.getElementById('b-tanggal').value = hariIni;
 
     // DRAWER MENU MOBILE
     function toggleMobileDrawer(buka) {
@@ -900,8 +1107,83 @@
         document.getElementById('nav-brand-fallback').style.display = 'none';
       }
       document.getElementById('cms-brand-text').value = document.getElementById('nav-brand-text').innerText;
+
+      // Ambil Tipografi Tersimpan
+      let typo = {};
+      try {
+        if (dataCMS.gaya_font_json) {
+          typo = typeof dataCMS.gaya_font_json === 'string' ? JSON.parse(dataCMS.gaya_font_json) : dataCMS.gaya_font_json;
+        } else {
+          typo = JSON.parse(localStorage.getItem('portal_typo_settings') || '{}');
+        }
+      } catch (_) {
+        typo = JSON.parse(localStorage.getItem('portal_typo_settings') || '{}');
+      }
+
+      // Terapkan Gaya Tipografi
+      terapkanGayaElemen('nav-brand-text', typo.header, '13px', '600', 'inherit');
+      terapkanGayaElemen('txt-beranda-head-judul', typo.beranda, '26px', '800', 'inherit');
+      terapkanGayaElemen('txt-tentang-judul', typo.tentang, '28px', '800', 'inherit');
+      terapkanGayaElemen('txt-pengurus-judul', typo.pengurus, '28px', '800', 'inherit');
+      terapkanGayaElemen('txt-agenda-judul', typo.agenda, '28px', '800', 'inherit');
+
+      // Sinkronkan ke input form admin
+      if (typo.header) setFormTypo('f-header', typo.header);
+      if (typo.beranda) setFormTypo('f-beranda', typo.beranda);
+      if (typo.tentang) setFormTypo('f-tentang', typo.tentang);
+      if (typo.pengurus) setFormTypo('f-pengurus', typo.pengurus);
+      if (typo.agenda) setFormTypo('f-agenda', typo.agenda);
+
+      // Teks Section Publik Tersimpan
+      if (dataCMS.beranda_judul) {
+        document.getElementById('txt-beranda-head-judul').innerText = dataCMS.beranda_judul;
+        document.getElementById('cms-beranda-judul').value = dataCMS.beranda_judul;
+      }
+      if (dataCMS.beranda_sub) {
+        document.getElementById('txt-beranda-head-sub').innerText = dataCMS.beranda_sub;
+        document.getElementById('cms-beranda-sub').value = dataCMS.beranda_sub;
+      }
+      if (dataCMS.tentang_judul_publik) {
+        document.getElementById('txt-tentang-judul').innerText = dataCMS.tentang_judul_publik;
+        document.getElementById('cms-tentang-judul').value = dataCMS.tentang_judul_publik;
+      }
+      if (dataCMS.tentang_sub_publik) {
+        document.getElementById('txt-tentang-subjudul').innerText = dataCMS.tentang_sub_publik;
+        document.getElementById('cms-tentang-sub').value = dataCMS.tentang_sub_publik;
+      }
+      if (dataCMS.pengurus_judul_publik) {
+        document.getElementById('txt-pengurus-judul').innerText = dataCMS.pengurus_judul_publik;
+        document.getElementById('cms-pengurus-judul').value = dataCMS.pengurus_judul_publik;
+      }
+      if (dataCMS.agenda_judul_publik) {
+        document.getElementById('txt-agenda-judul').innerText = dataCMS.agenda_judul_publik;
+        document.getElementById('cms-agenda-judul').value = dataCMS.agenda_judul_publik;
+      }
     }
 
+    function terapkanGayaElemen(elemId, config, defSize, defWeight, defFamily) {
+      const el = document.getElementById(elemId);
+      if (!el) return;
+      el.style.fontSize = (config && config.size ? config.size + 'px' : defSize);
+      el.style.fontWeight = (config && config.weight ? config.weight : defWeight);
+      el.style.fontFamily = (config && config.family ? config.family : defFamily);
+    }
+
+    function setFormTypo(prefix, config) {
+      if (config.family && document.getElementById(prefix + '-family')) document.getElementById(prefix + '-family').value = config.family;
+      if (config.size && document.getElementById(prefix + '-size')) document.getElementById(prefix + '-size').value = config.size;
+      if (config.weight && document.getElementById(prefix + '-weight')) document.getElementById(prefix + '-weight').value = config.weight;
+    }
+
+    function getFormTypo(prefix) {
+      return {
+        family: document.getElementById(prefix + '-family') ? document.getElementById(prefix + '-family').value : 'inherit',
+        size: document.getElementById(prefix + '-size') ? document.getElementById(prefix + '-size').value : '',
+        weight: document.getElementById(prefix + '-weight') ? document.getElementById(prefix + '-weight').value : '700'
+      };
+    }
+
+    // SIMPAN CMS PENGATURAN TEKS & TIPOGRAFI
     async function handleSimpanCMS(e) {
       e.preventDefault();
       try {
@@ -911,19 +1193,51 @@
         const base64IPNU = await bacaDanKompresGambar(fileLogoIPNU, 400, 0.9);
         const base64IPPNU = await bacaDanKompresGambar(fileLogoIPPNU, 400, 0.9);
 
-        const payload = {};
+        const typoSettings = {
+          header: getFormTypo('f-header'),
+          beranda: getFormTypo('f-beranda'),
+          tentang: getFormTypo('f-tentang'),
+          pengurus: getFormTypo('f-pengurus'),
+          agenda: getFormTypo('f-agenda')
+        };
+        localStorage.setItem('portal_typo_settings', JSON.stringify(typoSettings));
+
+        const payload = {
+          beranda_judul: document.getElementById('cms-beranda-judul').value,
+          beranda_sub: document.getElementById('cms-beranda-sub').value,
+          tentang_judul_publik: document.getElementById('cms-tentang-judul').value,
+          tentang_sub_publik: document.getElementById('cms-tentang-sub').value,
+          pengurus_judul_publik: document.getElementById('cms-pengurus-judul').value,
+          agenda_judul_publik: document.getElementById('cms-agenda-judul').value
+        };
+
         if (base64IPNU) payload.logo_url = base64IPNU;
         if (base64IPPNU) payload.logo_ippnu_url = base64IPPNU;
+        try { payload.gaya_font_json = JSON.stringify(typoSettings); } catch (_) {}
 
         document.getElementById('nav-brand-text').innerText = document.getElementById('cms-brand-text').value;
+        document.getElementById('txt-beranda-head-judul').innerText = payload.beranda_judul;
+        document.getElementById('txt-beranda-head-sub').innerText = payload.beranda_sub;
+        document.getElementById('txt-tentang-judul').innerText = payload.tentang_judul_publik;
+        document.getElementById('txt-tentang-subjudul').innerText = payload.tentang_sub_publik;
+        document.getElementById('txt-pengurus-judul').innerText = payload.pengurus_judul_publik;
+        document.getElementById('txt-agenda-judul').innerText = payload.agenda_judul_publik;
 
-        await fetch(`${DB_URL}/rest/v1/pengaturan_web?id=eq.1`, {
-          method: 'PATCH',
-          headers,
-          body: JSON.stringify(payload)
-        });
+        terapkanGayaElemen('nav-brand-text', typoSettings.header, '13px', '600', 'inherit');
+        terapkanGayaElemen('txt-beranda-head-judul', typoSettings.beranda, '26px', '800', 'inherit');
+        terapkanGayaElemen('txt-tentang-judul', typoSettings.tentang, '28px', '800', 'inherit');
+        terapkanGayaElemen('txt-pengurus-judul', typoSettings.pengurus, '28px', '800', 'inherit');
+        terapkanGayaElemen('txt-agenda-judul', typoSettings.agenda, '28px', '800', 'inherit');
 
-        alert('Pengaturan header berhasil disimpan!');
+        try {
+          await fetch(`${DB_URL}/rest/v1/pengaturan_web?id=eq.1`, {
+            method: 'PATCH',
+            headers,
+            body: JSON.stringify(payload)
+          });
+        } catch (_) {}
+
+        alert('Pengaturan teks, judul, dan tipografi font berhasil disimpan!');
         muatSemua();
       } catch (err) {
         alert('Gagal simpan: ' + err.message);
@@ -931,7 +1245,7 @@
     }
 
     // ==========================================
-    // 1. BERANDA (POSTINGAN)
+    // 1. BERANDA (POSTINGAN DENGAN TANGGAL)
     // ==========================================
     function bukaFormBeranda() {
       document.getElementById('panel-form-beranda').style.display = 'block';
@@ -941,6 +1255,7 @@
     function tutupFormBeranda() {
       document.getElementById('form-post-beranda').reset();
       document.getElementById('edit-id-beranda').value = '';
+      document.getElementById('b-tanggal').value = hariIni;
       document.getElementById('prev-b').style.display = 'none';
       document.getElementById('title-form-beranda').innerText = 'Tambah Postingan Beranda';
       document.getElementById('panel-form-beranda').style.display = 'none';
@@ -961,6 +1276,7 @@
         const payload = {
           judul: document.getElementById('b-judul').value,
           tagline: document.getElementById('b-tagline').value || 'Warta Ranting',
+          tanggal: document.getElementById('b-tanggal').value || hariIni,
           deskripsi: document.getElementById('b-desc').value
         };
         if (base64Foto) payload.foto_url = base64Foto;
@@ -993,6 +1309,7 @@
       document.getElementById('edit-id-beranda').value = p.id;
       document.getElementById('b-judul').value = p.judul;
       document.getElementById('b-tagline').value = p.tagline || '';
+      document.getElementById('b-tanggal').value = p.tanggal || hariIni;
       document.getElementById('b-desc').value = p.deskripsi;
       if (p.foto_url) {
         document.getElementById('prev-b').src = p.foto_url;
@@ -1011,12 +1328,15 @@
 
       if (dataBerandaPost.length === 0) {
         wadah.innerHTML = `
-          <div class="card-postingan" onclick="bukaDetailPostSederhana('Selamat Datang di Portal Resmi PR IPNU IPPNU Lembor', 'Portal Resmi', 'Selamat datang di website resmi Pimpinan Ranting IPNU & IPPNU Desa Lembor. Silakan pantau kabar, warta, serta agenda kegiatan terbaru melalui portal ini.', '')">
+          <div class="card-postingan" onclick="bukaDetailPostSederhana('Selamat Datang di Portal Resmi PR IPNU IPPNU Lembor', 'Portal Resmi', '10 Oktober 2026', 'Selamat datang di website resmi Pimpinan Ranting IPNU & IPPNU Desa Lembor. Silakan pantau kabar, warta, serta agenda kegiatan terbaru melalui portal ini.', '')">
             <div class="post-foto-box">
               <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80" class="post-foto" alt="Sampul">
             </div>
             <div class="post-body">
-              <div class="post-tagline">Warta Ranting</div>
+              <div class="post-meta-row">
+                <span class="post-tagline">Warta Ranting</span>
+                <span class="post-tanggal-badge">📅 10 Okt 2026</span>
+              </div>
               <h3 class="post-judul">Selamat Datang di Portal Resmi PR IPNU IPPNU Lembor</h3>
               <span class="post-baca-link">Baca Selengkapnya →</span>
             </div>
@@ -1031,7 +1351,10 @@
             <img src="${p.foto_url || 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80'}" class="post-foto" alt="${p.judul}">
           </div>
           <div class="post-body">
-            <div class="post-tagline">${p.tagline || 'Warta Lembor'}</div>
+            <div class="post-meta-row">
+              <span class="post-tagline">${p.tagline || 'Warta Lembor'}</span>
+              <span class="post-tanggal-badge">📅 ${p.tanggal || '-'}</span>
+            </div>
             <h3 class="post-judul">${p.judul}</h3>
             <span class="post-baca-link">Baca Selengkapnya →</span>
           </div>
@@ -1042,12 +1365,13 @@
     function bukaDetailPostById(id) {
       const p = dataBerandaPost.find(item => item.id === id);
       if (!p) return;
-      bukaDetailPostSederhana(p.judul, p.tagline, p.deskripsi, p.foto_url);
+      bukaDetailPostSederhana(p.judul, p.tagline, p.tanggal, p.deskripsi, p.foto_url);
     }
 
-    function bukaDetailPostSederhana(judul, tagline, isi, fotoUrl) {
+    function bukaDetailPostSederhana(judul, tagline, tanggal, isi, fotoUrl) {
       document.getElementById('detail-post-judul').innerText = judul;
       document.getElementById('detail-post-meta').innerText = tagline || 'Warta Ranting Lembor';
+      document.getElementById('detail-post-tgl').innerText = tanggal ? `• Dilaksanakan: ${tanggal}` : '';
       document.getElementById('detail-post-isi').innerText = isi;
 
       const imgBox = document.getElementById('detail-post-img-box');
@@ -1359,7 +1683,7 @@
     }
 
     // ==========================================
-    // 6. CATATAN KAS (DILENGKAPI 3 DASHBOARD TOTAL)
+    // 6. CATATAN KAS (3 DASHBOARD)
     // ==========================================
     function hitungDashboardKas() {
       let masuk = 0;
@@ -1637,8 +1961,9 @@
         <tr>
           <td><img src="${p.foto_url || ''}" style="width: 45px; height: 35px; border-radius: 4px; object-fit: cover; background: #e2e8f0;"></td>
           <td><b>${p.judul}</b></td>
+          <td>${p.tanggal || '-'}</td>
           <td>${p.tagline || '-'}</td>
-          <td>${(p.deskripsi || '').substring(0, 50)}...</td>
+          <td>${(p.deskripsi || '').substring(0, 45)}...</td>
           <td style="white-space: nowrap; text-align: center;">
             <button class="btn-sm-edit" title="Edit Postingan" onclick="editPostBeranda(${p.id})">✏️</button>
             <button class="btn-sm-del" title="Hapus Postingan" onclick="hapusUniversal('postingan_beranda', ${p.id})">🗑️</button>
