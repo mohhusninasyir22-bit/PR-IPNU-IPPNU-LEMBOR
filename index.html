@@ -105,7 +105,7 @@
     .kas-summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 20px; }
     .kas-card-summary { padding: 18px 20px; border-radius: 14px; border: 1px solid #e2e8f0; display: flex; flex-direction: column; gap: 4px; }
     .kas-card-label { font-size: 11px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; }
-    .kas-card-value { font-size: 22px; font-weight: 800; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    .kas-card-value { font-size: 22px; font-weight: 800; }
     .kas-saldo { background: #f0fdf4; border-color: #bbf7d0; color: #166534; }
     .kas-masuk { background: #ecfdf5; border-color: #a7f3d0; color: #065f46; }
     .kas-keluar { background: #fef2f2; border-color: #fecaca; color: #991b1b; }
@@ -650,14 +650,21 @@
             </div>
           </div>
 
-          <!-- 4. PENGURUS -->
+          <!-- 4. PENGURUS (DILENGKAPI FORM SUBJUDUL & FONT) -->
           <div id="adm-pengurus" class="adm-tab-section" style="display: none;">
             <form onsubmit="handleSimpanCMS(event)" style="background: #f8fafc; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 24px;">
-              <h5 style="color: var(--primary); margin-bottom: 12px;">Pengaturan Judul & Font Seksi Pengurus</h5>
-              <div class="form-group">
-                <label>Judul Seksi Pengurus</label>
-                <input type="text" id="cms-pengurus-judul" value="Jajaran Pengurus Ranting" required>
+              <h5 style="color: var(--primary); margin-bottom: 12px;">Pengaturan Judul, Subjudul & Font Seksi Pengurus</h5>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Judul Seksi Pengurus</label>
+                  <input type="text" id="cms-pengurus-judul" value="Jajaran Pengurus Ranting" required>
+                </div>
+                <div class="form-group">
+                  <label>Deskripsi di Bawah Judul (Subjudul)</label>
+                  <input type="text" id="cms-pengurus-sub" value="Struktur kepengurusan masa khidmah aktif PR IPNU IPPNU Desa Lembor" required>
+                </div>
               </div>
+
               <div class="typo-controls">
                 <div class="typo-controls-title">Pengaturan Huruf Judul Pengurus</div>
                 <div class="typo-grid">
@@ -715,14 +722,21 @@
             </div>
           </div>
 
-          <!-- 5. AGENDA -->
+          <!-- 5. AGENDA (DILENGKAPI FORM SUBJUDUL & FONT) -->
           <div id="adm-agenda" class="adm-tab-section" style="display: none;">
             <form onsubmit="handleSimpanCMS(event)" style="background: #f8fafc; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 24px;">
-              <h5 style="color: var(--primary); margin-bottom: 12px;">Pengaturan Judul & Font Seksi Agenda</h5>
-              <div class="form-group">
-                <label>Judul Seksi Agenda</label>
-                <input type="text" id="cms-agenda-judul" value="Agenda & Program Kerja" required>
+              <h5 style="color: var(--primary); margin-bottom: 12px;">Pengaturan Judul, Subjudul & Font Seksi Agenda</h5>
+              <div class="form-grid">
+                <div class="form-group">
+                  <label>Judul Seksi Agenda</label>
+                  <input type="text" id="cms-agenda-judul" value="Agenda & Program Kerja" required>
+                </div>
+                <div class="form-group">
+                  <label>Deskripsi di Bawah Judul (Subjudul)</label>
+                  <input type="text" id="cms-agenda-sub" value="Jadwal kegiatan rutinan, pengajian, dan agenda organisasi mendatang" required>
+                </div>
               </div>
+
               <div class="typo-controls">
                 <div class="typo-controls-title">Pengaturan Huruf Judul Agenda</div>
                 <div class="typo-grid">
@@ -1045,7 +1059,7 @@
       btn.classList.add('aktif');
     }
 
-    // AMBIL DATA SUPABASE
+    // AMBIL DATA SUPABASE & LOCALSTORAGE BACKUP
     async function muatSemua() {
       try {
         const [resCMS, resBeranda, resTentang, resPengurus, resReg, resKader, resKas, resSurat, resAgenda] = await Promise.all([
@@ -1067,7 +1081,7 @@
           }
         }
 
-        // BACA JUGA CADANGAN LOCALSTORAGE
+        // BACA CADANGAN LOCALSTORAGE
         const cadanganTeks = JSON.parse(localStorage.getItem('portal_text_settings') || '{}');
         dataCMS = { ...dataCMS, ...cadanganTeks };
 
@@ -1156,9 +1170,17 @@
         document.getElementById('txt-pengurus-judul').innerText = dataCMS.pengurus_judul_publik;
         document.getElementById('cms-pengurus-judul').value = dataCMS.pengurus_judul_publik;
       }
+      if (dataCMS.pengurus_sub_publik) {
+        document.getElementById('txt-pengurus-subjudul').innerText = dataCMS.pengurus_sub_publik;
+        document.getElementById('cms-pengurus-sub').value = dataCMS.pengurus_sub_publik;
+      }
       if (dataCMS.agenda_judul_publik) {
         document.getElementById('txt-agenda-judul').innerText = dataCMS.agenda_judul_publik;
         document.getElementById('cms-agenda-judul').value = dataCMS.agenda_judul_publik;
+      }
+      if (dataCMS.agenda_sub_publik) {
+        document.getElementById('txt-agenda-subjudul').innerText = dataCMS.agenda_sub_publik;
+        document.getElementById('cms-agenda-sub').value = dataCMS.agenda_sub_publik;
       }
     }
 
@@ -1209,7 +1231,9 @@
           tentang_judul_publik: document.getElementById('cms-tentang-judul').value,
           tentang_sub_publik: document.getElementById('cms-tentang-sub').value,
           pengurus_judul_publik: document.getElementById('cms-pengurus-judul').value,
-          agenda_judul_publik: document.getElementById('cms-agenda-judul').value
+          pengurus_sub_publik: document.getElementById('cms-pengurus-sub').value,
+          agenda_judul_publik: document.getElementById('cms-agenda-judul').value,
+          agenda_sub_publik: document.getElementById('cms-agenda-sub').value
         };
 
         // Simpan cadangan teks ke localStorage
@@ -1225,7 +1249,9 @@
         document.getElementById('txt-tentang-judul').innerText = payload.tentang_judul_publik;
         document.getElementById('txt-tentang-subjudul').innerText = payload.tentang_sub_publik;
         document.getElementById('txt-pengurus-judul').innerText = payload.pengurus_judul_publik;
+        document.getElementById('txt-pengurus-subjudul').innerText = payload.pengurus_sub_publik;
         document.getElementById('txt-agenda-judul').innerText = payload.agenda_judul_publik;
+        document.getElementById('txt-agenda-subjudul').innerText = payload.agenda_sub_publik;
 
         terapkanGayaElemen('nav-brand-text', typoSettings.header, '13px', '600', 'inherit');
         terapkanGayaElemen('txt-beranda-head-judul', typoSettings.beranda, '26px', '800', 'inherit');
@@ -1241,7 +1267,7 @@
           });
         } catch (_) {}
 
-        alert('Pengaturan teks, judul, dan tipografi font berhasil disimpan!');
+        alert('Pengaturan teks, judul, subjudul, dan font berhasil disimpan!');
         muatSemua();
       } catch (err) {
         alert('Gagal simpan: ' + err.message);
@@ -1462,7 +1488,6 @@
     function renderTentangPublik() {
       if (dataTentangList.length > 0) {
         const t = dataTentangList[0];
-        document.getElementById('txt-tentang-judul').innerText = t.judul;
         document.getElementById('txt-tentang-desc').innerText = t.deskripsi;
         if (t.visi) document.getElementById('txt-visi-content').innerText = t.visi;
         if (t.misi) document.getElementById('txt-misi-content').innerText = t.misi;
