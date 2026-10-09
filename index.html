@@ -4,10 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PR IPNU IPPNU Lembor - Portal Resmi</title>
-  <meta name="description" content="Website resmi Pimpinan Ranting IPNU IPPNU Lembor. Informasi kegiatan, jajaran pengurus, dan agenda pelajar Desa Lembor.">
-    <meta name="keywords" content="IPNU IPPNU Lembor, PR IPNU LEMBOR, Pelajar Lembor, Desa Lembor">
-    <meta name="robots" content="index, follow">
-    <meta name="google-site-verification" content="N9jP75ns9qiHagSMfrWGT-eDUJY1WsO-8EoiQY9JH4c" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -24,7 +20,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
     body { background-color: var(--bg); color: var(--text-dark); line-height: 1.6; }
 
-    /* HEADER & NAVBAR */
+    /* HEADER */
     header { background: #ffffff; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #e2e8f0; }
     .nav-inner { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 14px 24px; }
     .brand-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; cursor: pointer; }
@@ -57,15 +53,16 @@
     .drawer-nav-item:hover, .drawer-nav-item.active { background: #ecfdf5; color: var(--primary); font-weight: 700; }
     .btn-drawer-daftar { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer; margin-top: auto; text-align: center; }
 
-    /* HERO */
+    /* GRID POSTINGAN BERANDA */
     .hero-container { max-width: 1200px; margin: 30px auto; padding: 0 24px; }
-    .hero-card { background: #ffffff; border-radius: 28px; padding: 45px 50px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; box-shadow: 0 10px 40px rgba(0,0,0,0.03); border: 1px solid #f1f5f9; }
+    .grid-postingan-beranda { display: flex; flex-direction: column; gap: 35px; }
+    .hero-card { background: #ffffff; border-radius: 28px; padding: 40px 45px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; box-shadow: 0 10px 40px rgba(0,0,0,0.03); border: 1px solid #f1f5f9; }
     .hero-text-content { order: 1; }
-    .hero-img-box { order: 2; position: relative; width: 100%; height: 380px; border-radius: 22px; overflow: hidden; background: #f1f5f9; box-shadow: 0 12px 30px rgba(6,95,70,0.08); }
+    .hero-img-box { order: 2; position: relative; width: 100%; height: 350px; border-radius: 22px; overflow: hidden; background: #f1f5f9; box-shadow: 0 12px 30px rgba(6,95,70,0.08); }
     .hero-img { width: 100%; height: 100%; object-fit: cover; }
-    .hero-meta { font-size: 12px; font-weight: 800; letter-spacing: 1.5px; color: var(--primary); text-transform: uppercase; margin-bottom: 18px; }
-    .hero-title { font-size: 40px; font-weight: 800; line-height: 1.25; color: #044e39; margin-bottom: 20px; letter-spacing: -0.5px; }
-    .hero-desc { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 30px; }
+    .hero-meta { font-size: 12px; font-weight: 800; letter-spacing: 1.5px; color: var(--primary); text-transform: uppercase; margin-bottom: 14px; }
+    .hero-title { font-size: 36px; font-weight: 800; line-height: 1.25; color: #044e39; margin-bottom: 16px; letter-spacing: -0.5px; }
+    .hero-desc { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px; }
     .hero-btns { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
     .btn-main { background: #065f46; color: white; padding: 12px 24px; border-radius: 24px; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; border: none; cursor: pointer; }
     .btn-second { background: transparent; color: #334155; border: 1px solid #e2e8f0; padding: 12px 24px; border-radius: 24px; text-decoration: none; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
@@ -78,7 +75,7 @@
     .card-box { background: white; border-radius: 20px; padding: 35px; border: 1px solid #f1f5f9; box-shadow: 0 4px 20px rgba(0,0,0,0.02); margin-bottom: 24px; }
     .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
 
-    /* PENGURUS */
+    /* PENGURUS & AGENDA */
     .grid-pengurus { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; }
     .card-pengurus { background: white; border-radius: 18px; padding: 22px 18px; text-align: center; border: 1px solid #f1f5f9; box-shadow: 0 6px 20px rgba(0,0,0,0.02); transition: 0.3s; }
     .card-pengurus:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.06); }
@@ -89,7 +86,6 @@
     .badge-ipnu { background: #d1fae5; color: #065f46; }
     .badge-ippnu { background: #ccfbf1; color: #0f766e; }
 
-    /* AGENDA */
     .grid-agenda { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
     .card-agenda { background: white; border-radius: 18px; border: 1px solid #f1f5f9; box-shadow: 0 6px 25px rgba(0,0,0,0.03); overflow: hidden; display: flex; flex-direction: column; }
     .agenda-pamflet-box { width: 100%; height: 210px; background: #f8fafc; border-bottom: 1px solid #f1f5f9; position: relative; }
@@ -99,9 +95,8 @@
     .agenda-meta { font-size: 13px; color: #64748b; margin-bottom: 12px; display: flex; flex-direction: column; gap: 4px; }
     .agenda-desc { font-size: 13px; color: #475569; line-height: 1.6; margin-bottom: 18px; flex: 1; }
     .btn-agenda-daftar { display: inline-block; text-align: center; background: var(--primary); color: white; padding: 10px 18px; border-radius: 20px; font-size: 13px; font-weight: 700; text-decoration: none; transition: 0.2s; border: none; }
-    .btn-agenda-daftar:hover { background: var(--primary-dark); }
 
-    /* MODAL & DASHBOARD ADMIN */
+    /* MODAL & ADMIN */
     .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.6); z-index: 1100; overflow-y: auto; padding: 20px 10px; }
     .modal-box { max-width: 650px; margin: 30px auto; background: white; border-radius: 20px; padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
     .modal-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 14px; margin-bottom: 20px; }
@@ -113,27 +108,28 @@
     .admin-menu-btn { width: 100%; text-align: left; background: none; border: none; padding: 10px 14px; font-size: 13px; font-weight: 700; color: #64748b; border-radius: 10px; cursor: pointer; transition: 0.2s; display: flex; align-items: center; justify-content: space-between; }
     .admin-menu-btn:hover { background: #f8fafc; color: var(--primary); }
     .admin-menu-btn.aktif { background: #d1fae5; color: #065f46; }
-    
+
+    .form-panel-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px; margin-bottom: 20px; display: none; }
     .form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 14px; }
     .form-group { margin-bottom: 10px; }
     label { display: block; font-size: 12px; font-weight: 700; margin-bottom: 4px; color: #334155; }
     input, select, textarea { width: 100%; padding: 9px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 13px; }
-    input[type="file"] { padding: 6px; background: #f8fafc; }
-    textarea { height: 75px; resize: vertical; }
+    input[type="file"] { padding: 6px; background: #fff; }
+    textarea { height: 80px; resize: vertical; }
 
     .search-input-box { width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 13px; margin: 10px 0; background: #fff; }
     .typo-controls { background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 10px; padding: 12px 14px; margin: 12px 0; }
     .typo-controls-title { font-size: 11px; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
     .typo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; }
 
-    .img-preview { width: 70px; height: 70px; object-fit: contain; border-radius: 8px; border: 1px solid #cbd5e1; margin-top: 6px; display: none; background: #f8fafc; }
+    .img-preview { width: 80px; height: 80px; object-fit: contain; border-radius: 8px; border: 1px solid #cbd5e1; margin-top: 6px; display: none; background: #fff; }
     table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 12px; }
     th, td { border: 1px solid #e2e8f0; padding: 8px 10px; text-align: left; vertical-align: middle; }
     th { background: #f8fafc; font-weight: 700; }
     .btn-sm-del { background: #fee2e2; color: #dc2626; border: none; padding: 5px 8px; border-radius: 4px; cursor: pointer; font-size: 12px; }
     .btn-sm-edit { background: #fef3c7; color: #d97706; border: none; padding: 5px 8px; border-radius: 4px; cursor: pointer; font-size: 12px; margin-right: 4px; }
     .btn-sm-acc { background: #d1fae5; color: #065f46; border: none; padding: 5px 8px; border-radius: 4px; cursor: pointer; font-weight: 700; margin-right: 4px; font-size: 11px; }
-    .btn-batal { background: #94a3b8; color: white; padding: 10px 18px; border-radius: 24px; border: none; cursor: pointer; font-size: 13px; font-weight: 700; margin-left: 8px; display: none; }
+    .btn-batal { background: #94a3b8; color: white; padding: 10px 18px; border-radius: 24px; border: none; cursor: pointer; font-size: 13px; font-weight: 700; margin-left: 8px; }
 
     .page-section { display: none; }
     .page-section.active-page { display: block; animation: fadeIn 0.3s ease-in-out; }
@@ -142,7 +138,7 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* KHUSUS SMARTPHONE (ANDROID & IOS) */
+    /* RESPONSIVE MOBILE */
     @media (max-width: 850px) {
       .nav-inner { padding: 10px 16px; }
       .brand-wrap { gap: 6px; }
@@ -153,7 +149,7 @@
       .sub-navbar { display: none !important; }
       .btn-mobile-menu { display: block !important; }
 
-      .hero-card { display: flex !important; flex-direction: column !important; padding: 24px 18px !important; gap: 24px !important; }
+      .hero-card { display: flex !important; flex-direction: column !important; padding: 24px 18px !important; gap: 20px !important; }
       .hero-img-box { order: 1 !important; width: 100% !important; height: 220px !important; }
       .hero-text-content { order: 2 !important; }
       .hero-title { font-size: 24px !important; line-height: 1.3 !important; margin-bottom: 14px !important; }
@@ -187,7 +183,7 @@
     <div class="sub-navbar">
       <div class="sub-navbar-inner">
         <button class="nav-link active-nav" onclick="navigasiKe('page-beranda', this)">Beranda</button>
-        <button class="nav-link" onclick="navigasiKe('page-tentang', this)">Tentang</button>
+        <button class="nav-link" onclick="navigasiKe('page-tentang', this)">Tentang & Visi</button>
         <button class="nav-link" onclick="navigasiKe('page-pengurus', this)">Jajaran Pengurus</button>
         <button class="nav-link" onclick="navigasiKe('page-agenda', this)">Agenda</button>
       </div>
@@ -203,30 +199,17 @@
     </div>
     <div class="drawer-nav-list">
       <button class="drawer-nav-item active" onclick="navigasiMobile('page-beranda', this)">🏠 Beranda</button>
-      <button class="drawer-nav-item" onclick="navigasiMobile('page-tentang', this)">📖 Tentang</button>
+      <button class="drawer-nav-item" onclick="navigasiMobile('page-tentang', this)">📖 Tentang & Visi</button>
       <button class="drawer-nav-item" onclick="navigasiMobile('page-pengurus', this)">👔 Jajaran Pengurus</button>
       <button class="drawer-nav-item" onclick="navigasiMobile('page-agenda', this)">📅 Agenda</button>
     </div>
     <button class="btn-drawer-daftar" onclick="toggleMobileDrawer(false); bukaModalPendaftaran();">📝 Daftar Anggota</button>
   </div>
 
-  <!-- HALAMAN 1: BERANDA -->
+  <!-- HALAMAN 1: BERANDA (BISA BANYAK POSTINGAN) -->
   <div id="page-beranda" class="page-section active-page">
     <main class="hero-container">
-      <div class="hero-card">
-        <div class="hero-img-box">
-          <img id="img-hero-banner" src="" alt="Foto Pengurus" class="hero-img">
-        </div>
-        <div class="hero-text-content">
-          <div class="hero-meta" id="txt-hero-tagline">PR IPNU IPPNU LEMBOR — WE ARE RESILIENT LEADER</div>
-          <h1 class="hero-title" id="txt-hero-judul">Bertumbuh Bersama. Menguatkan Karakter.</h1>
-          <p class="hero-desc" id="txt-hero-subjudul">Setiap proses belajar membuka ruang untuk mengenal diri, mengabdi pada umat, dan berkembang bersama generasi muda Desa Lembor.</p>
-          <div class="hero-btns">
-            <button class="btn-main" onclick="bukaModalPendaftaran()">Gabung Sekarang ↗</button>
-            <button class="btn-second" onclick="navigasiKe('page-tentang')">Kenali Organisasi →</button>
-          </div>
-        </div>
-      </div>
+      <div class="grid-postingan-beranda" id="wadah-postingan-beranda"></div>
     </main>
 
     <div class="section-wrap" style="margin-top: 10px; margin-bottom: 50px;">
@@ -245,7 +228,7 @@
     </div>
   </div>
 
-  <!-- HALAMAN 2: TENTANG KAMI -->
+  <!-- HALAMAN 2: TENTANG KAMI, VISI & MISI -->
   <div id="page-tentang" class="page-section">
     <section class="section-wrap">
       <div class="section-header">
@@ -256,24 +239,24 @@
       <div class="card-box">
         <h3 style="color: var(--primary); font-size: 20px; margin-bottom: 12px;">Profil & Peran Ranting</h3>
         <p id="txt-tentang-desc" style="font-size: 15px; color: #334155; line-height: 1.8;">
-          Pimpinan Ranting Ikatan Pelajar Nahdlatul Ulama dan Ikatan Pelajar Putri Nahdlatul Ulama Desa Lembor merupakan garda terdepan pembinaan generasi muda Nahdliyyin tingkat desa.
+          Pimpinan Ranting Ikatan Pelajar Nahdlatul Ulama dan Ikatan Pelajar Putri Nahdlatul Ulama Desa Lembor merupakan wadah kaderisasi pelajar, santri, dan pemuda Nahdliyyin tingkat desa.
         </p>
       </div>
 
       <div class="grid-2">
         <div class="card-box">
           <h3 style="color: var(--primary); font-size: 18px; margin-bottom: 12px;">🎯 Visi Utama</h3>
-          <p style="font-size: 14px; color: #475569; line-height: 1.7;">
+          <p id="txt-visi-content" style="font-size: 14px; color: #475569; line-height: 1.7; white-space: pre-line;">
             Terwujudnya generasi pelajar dan santri Desa Lembor yang berakhlakul karimah, berilmu pengetahuan luas, mandiri, berkarakter kepemimpinan, serta teguh menjaga ajaran Ahlussunnah wal Jama'ah An-Nahdliyyah.
           </p>
         </div>
         <div class="card-box">
           <h3 style="color: var(--primary); font-size: 18px; margin-bottom: 12px;">🚀 Misi Perjuangan</h3>
-          <ul style="padding-left: 20px; font-size: 14px; color: #475569; line-height: 1.8;">
-            <li>Menghimpun potensi pelajar dan pemuda se-Desa Lembor dalam wadah kekeluargaan NU.</li>
-            <li>Menggalakkan proses kaderisasi formal (Masa Kesetiaan Anggota / MAKESTA) secara berkelanjutan.</li>
-            <li>Mengembangkan potensi minat, bakat, keilmuan, dan sosial kemasyarakatan.</li>
-          </ul>
+          <div id="txt-misi-content" style="font-size: 14px; color: #475569; line-height: 1.8; white-space: pre-line;">
+            • Menghimpun potensi pelajar dan pemuda se-Desa Lembor dalam wadah kekeluargaan NU.
+            • Menggalakkan proses kaderisasi formal (MAKESTA) secara berkelanjutan.
+            • Mengembangkan minat, bakat, keilmuan, dan sosial kemasyarakatan.
+          </div>
         </div>
       </div>
     </section>
@@ -377,7 +360,7 @@
     </div>
   </div>
 
-  <!-- MODAL DASHBOARD ADMIN -->
+  <!-- DASHBOARD ADMIN LENGKAP -->
   <div id="modal-dashboard-admin" class="modal-overlay">
     <div class="modal-box admin-box">
       <div class="modal-head">
@@ -388,8 +371,8 @@
       <div class="admin-layout">
         <div class="admin-sidebar">
           <button class="admin-menu-btn aktif" onclick="bukaTabAdmin('adm-header', this)">📌 Header & 2 Logo</button>
-          <button class="admin-menu-btn" onclick="bukaTabAdmin('adm-beranda', this)">🏠 Beranda (Banner)</button>
-          <button class="admin-menu-btn" onclick="bukaTabAdmin('adm-tentang', this)">📖 Tentang & Visi</button>
+          <button class="admin-menu-btn" onclick="bukaTabAdmin('adm-beranda', this)">🏠 Postingan Beranda</button>
+          <button class="admin-menu-btn" onclick="bukaTabAdmin('adm-tentang', this)">📖 Tentang & Visi-Misi</button>
           <button class="admin-menu-btn" onclick="bukaTabAdmin('adm-pengurus', this)">👔 Jajaran Pengurus</button>
           <button class="admin-menu-btn" onclick="bukaTabAdmin('adm-agenda', this)">📅 Agenda Kegiatan</button>
           <button class="admin-menu-btn" onclick="bukaTabAdmin('adm-pendaftar', this)">📋 Pendaftaran (<span id="count-pendaftar">0</span>)</button>
@@ -453,149 +436,114 @@
             </form>
           </div>
 
-          <!-- 2. BERANDA -->
+          <!-- 2. BERANDA: SISTEM MULTI-POSTINGAN DENGAN FORM ON-DEMAND -->
           <div id="adm-beranda" class="adm-tab-section" style="display: none;">
-            <h4 style="margin-bottom: 14px; color: var(--primary);">Atur Tampilan Beranda & Tipografi Banner</h4>
-            <form onsubmit="handleSimpanCMS(event)">
-              <div class="form-group">
-                <label>Foto Sampul Banner Besar (Dari Galeri Perangkat)</label>
-                <input type="file" id="cms-file-herofoto" accept="image/*" onchange="pratinjauFoto(this, 'prev-hero')">
-                <img id="prev-hero" class="img-preview" alt="Preview Hero" style="height: 120px; width: 100%; object-fit: cover;">
-              </div>
-              <div class="form-group">
-                <label>Teks Tagline Atas</label>
-                <input type="text" id="cms-tagline" required>
-              </div>
-              <div class="form-group">
-                <label>Teks Judul Utama Beranda</label>
-                <input type="text" id="cms-herojudul" required>
-              </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+              <h4 style="color: var(--primary);">Daftar Postingan / Banner Beranda</h4>
+              <button class="btn-main" onclick="bukaFormBeranda()">➕ Tambah Postingan Baru</button>
+            </div>
 
-              <div class="typo-controls">
-                <div class="typo-controls-title">Pengaturan Huruf Judul Utama Beranda</div>
-                <div class="typo-grid">
-                  <div>
-                    <label>Jenis Font</label>
-                    <select id="f-hero-family">
-                      <option value="inherit">Sistem Default</option>
-                      <option value="'Poppins', sans-serif">Poppins</option>
-                      <option value="'Montserrat', sans-serif">Montserrat</option>
-                      <option value="'Inter', sans-serif">Inter</option>
-                      <option value="'Playfair Display', serif">Playfair Display (Serif)</option>
-                    </select>
+            <!-- Form On-Demand Beranda -->
+            <div id="panel-form-beranda" class="form-panel-box">
+              <h5 id="title-form-beranda" style="color: #334155; margin-bottom: 12px;">Tambah Postingan Beranda</h5>
+              <form id="form-post-beranda" onsubmit="handleSimpanPostBeranda(event)">
+                <input type="hidden" id="edit-id-beranda" value="">
+                <div class="form-grid">
+                  <div class="form-group" style="grid-column: 1 / -1;">
+                    <label>Teks Tagline Atas</label>
+                    <input type="text" id="b-tagline" placeholder="Contoh: PR IPNU IPPNU LEMBOR — WE ARE RESILIENT LEADER" required>
                   </div>
-                  <div>
-                    <label>Ukuran (px)</label>
-                    <input type="number" id="f-hero-size" min="20" max="64" value="40">
+                  <div class="form-group" style="grid-column: 1 / -1;">
+                    <label>Judul Utama Postingan</label>
+                    <input type="text" id="b-judul" placeholder="Contoh: Bertumbuh Bersama. Menguatkan Karakter." required>
                   </div>
-                  <div>
-                    <label>Ketebalan</label>
-                    <select id="f-hero-weight">
-                      <option value="400">Normal (Biasa)</option>
-                      <option value="600">Semi Bold</option>
-                      <option value="700">Bold (Tebal)</option>
-                      <option value="800" selected>Extra Bold</option>
-                    </select>
+                  <div class="form-group" style="grid-column: 1 / -1;">
+                    <label>Deskripsi / Paragraf Pengantar</label>
+                    <textarea id="b-desc" placeholder="Tuliskan isi keterangan postingan beranda..." required></textarea>
+                  </div>
+                  <div class="form-group" style="grid-column: 1 / -1;">
+                    <label>Foto Banner / Sampul (Dari Galeri)</label>
+                    <input type="file" id="b-file-foto" accept="image/*" onchange="pratinjauFoto(this, 'prev-b')">
+                    <img id="prev-b" class="img-preview" alt="Preview Foto" style="height: 100px; width: 100%; object-fit: cover;">
                   </div>
                 </div>
-              </div>
+                <button type="submit" id="btn-submit-beranda" class="btn-main">💾 Simpan Postingan</button>
+                <button type="button" class="btn-batal" style="display:inline-block;" onclick="tutupFormBeranda()">Batal</button>
+              </form>
+            </div>
 
-              <div class="form-group">
-                <label>Teks Deskripsi / Subjudul Beranda</label>
-                <textarea id="cms-herodesc" required></textarea>
-              </div>
-              <button type="submit" class="btn-main" style="margin-top: 10px;">💾 Simpan Tampilan Beranda</button>
-            </form>
+            <!-- Tabel Postingan Beranda -->
+            <div style="overflow-x: auto;">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Foto</th>
+                    <th>Judul</th>
+                    <th>Tagline</th>
+                    <th>Keterangan</th>
+                    <th style="width: 80px; text-align: center;">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="tabel-beranda-adm"></tbody>
+              </table>
+            </div>
           </div>
 
-          <!-- 3. TENTANG -->
+          <!-- 3. TENTANG & VISI-MISI (INPUT PROFIL, VISI & MISI DENGAN ON-DEMAND FORM) -->
           <div id="adm-tentang" class="adm-tab-section" style="display: none;">
-            <h4 style="margin-bottom: 14px; color: var(--primary);">Atur Teks & Tipografi Seksi Tentang</h4>
-            <form onsubmit="handleSimpanCMS(event)">
-              <div class="form-group">
-                <label>Judul Seksi Tentang</label>
-                <input type="text" id="cms-tentang-judul" required>
-              </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+              <h4 style="color: var(--primary);">Tentang, Visi & Misi Organisasi</h4>
+              <button class="btn-main" onclick="bukaFormTentang()">➕ Edit / Tambah Profil & Visi Misi</button>
+            </div>
 
-              <div class="typo-controls">
-                <div class="typo-controls-title">Pengaturan Huruf Judul Tentang</div>
-                <div class="typo-grid">
-                  <div>
-                    <label>Jenis Font</label>
-                    <select id="f-tentang-family">
-                      <option value="inherit">Sistem Default</option>
-                      <option value="'Poppins', sans-serif">Poppins</option>
-                      <option value="'Montserrat', sans-serif">Montserrat</option>
-                      <option value="'Inter', sans-serif">Inter</option>
-                      <option value="'Playfair Display', serif">Playfair Display (Serif)</option>
-                    </select>
+            <!-- Form On-Demand Tentang & Visi Misi -->
+            <div id="panel-form-tentang" class="form-panel-box">
+              <h5 id="title-form-tentang" style="color: #334155; margin-bottom: 12px;">Pengaturan Profil & Visi Misi</h5>
+              <form id="form-tentang-visi" onsubmit="handleSimpanTentangVisi(event)">
+                <input type="hidden" id="edit-id-tentang" value="">
+                <div class="form-grid">
+                  <div class="form-group" style="grid-column: 1 / -1;">
+                    <label>Judul Seksi Tentang</label>
+                    <input type="text" id="t-judul" placeholder="Contoh: Tentang PR IPNU IPPNU Lembor" required>
                   </div>
-                  <div>
-                    <label>Ukuran (px)</label>
-                    <input type="number" id="f-tentang-size" min="18" max="48" value="28">
+                  <div class="form-group" style="grid-column: 1 / -1;">
+                    <label>Deskripsi Profil Organisasi</label>
+                    <textarea id="t-desc" placeholder="Tuliskan profil lengkap ranting..." style="height: 100px;" required></textarea>
                   </div>
-                  <div>
-                    <label>Ketebalan</label>
-                    <select id="f-tentang-weight">
-                      <option value="400">Normal (Biasa)</option>
-                      <option value="600">Semi Bold</option>
-                      <option value="700">Bold (Tebal)</option>
-                      <option value="800" selected>Extra Bold</option>
-                    </select>
+                  <div class="form-group" style="grid-column: 1 / -1;">
+                    <label>Visi Organisasi *</label>
+                    <textarea id="t-visi" placeholder="Tuliskan visi ranting..." style="height: 90px;" required></textarea>
+                  </div>
+                  <div class="form-group" style="grid-column: 1 / -1;">
+                    <label>Misi Organisasi * (Gunakan butir poin / baris baru)</label>
+                    <textarea id="t-misi" placeholder="• Poin 1...&#10;• Poin 2..." style="height: 110px;" required></textarea>
                   </div>
                 </div>
-              </div>
+                <button type="submit" id="btn-submit-tentang" class="btn-main">💾 Simpan Profil & Visi Misi</button>
+                <button type="button" class="btn-batal" style="display:inline-block;" onclick="tutupFormTentang()">Batal</button>
+              </form>
+            </div>
 
-              <div class="form-group">
-                <label>Teks Penjelasan / Deskripsi Tentang</label>
-                <textarea id="cms-tentang" style="height: 120px;" required></textarea>
-              </div>
-              <button type="submit" class="btn-main" style="margin-top: 10px;">💾 Simpan Seksi Tentang</button>
-            </form>
+            <!-- Tabel Data Profil & Visi Misi -->
+            <div style="overflow-x: auto;">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Judul Profil</th>
+                    <th>Deskripsi Ringkas</th>
+                    <th>Visi</th>
+                    <th>Misi</th>
+                    <th style="width: 80px; text-align: center;">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="tabel-tentang-adm"></tbody>
+              </table>
+            </div>
           </div>
 
           <!-- 4. PENGURUS -->
           <div id="adm-pengurus" class="adm-tab-section" style="display: none;">
-            <h4 style="margin-bottom: 14px; color: var(--primary);">Kelola Pengurus & Tipografi Judul</h4>
-            
-            <form onsubmit="handleSimpanCMS(event)" style="margin-bottom: 18px;">
-              <div class="form-group">
-                <label>Judul Seksi Pengurus</label>
-                <input type="text" id="cms-pengurus-judul" value="Jajaran Pengurus Ranting" required>
-              </div>
-              <div class="typo-controls">
-                <div class="typo-controls-title">Pengaturan Huruf Judul Jajaran Pengurus</div>
-                <div class="typo-grid">
-                  <div>
-                    <label>Jenis Font</label>
-                    <select id="f-pengurus-family">
-                      <option value="inherit">Sistem Default</option>
-                      <option value="'Poppins', sans-serif">Poppins</option>
-                      <option value="'Montserrat', sans-serif">Montserrat</option>
-                      <option value="'Inter', sans-serif">Inter</option>
-                      <option value="'Playfair Display', serif">Playfair Display (Serif)</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label>Ukuran (px)</label>
-                    <input type="number" id="f-pengurus-size" min="18" max="48" value="28">
-                  </div>
-                  <div>
-                    <label>Ketebalan</label>
-                    <select id="f-pengurus-weight">
-                      <option value="400">Normal (Biasa)</option>
-                      <option value="600">Semi Bold</option>
-                      <option value="700">Bold (Tebal)</option>
-                      <option value="800" selected>Extra Bold</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <button type="submit" class="btn-main">💾 Simpan Judul & Tipografi Pengurus</button>
-            </form>
-
-            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 18px 0;">
-
+            <h4 style="margin-bottom: 14px; color: var(--primary);">Kelola Pengurus</h4>
             <h5 id="form-pengurus-title" style="color: #334155; margin-bottom: 8px;">Tambah Anggota Pengurus Baru</h5>
             <form id="form-pengurus" onsubmit="handleSimpanPengurus(event)">
               <input type="hidden" id="edit-id-pengurus" value="">
@@ -621,85 +569,13 @@
             </div>
           </div>
 
-          <!-- 5. AGENDA (DILENGKAPI FOTO PAMFLET, LINK, DESKRIPSI & TIPOGRAFI JUDUL/CARD) -->
+          <!-- 5. AGENDA -->
           <div id="adm-agenda" class="adm-tab-section" style="display: none;">
-            <h4 style="margin-bottom: 14px; color: var(--primary);">Kelola Agenda & Tipografi</h4>
-
-            <!-- Form Pengaturan Judul & Huruf Agenda -->
-            <form onsubmit="handleSimpanCMS(event)" style="margin-bottom: 18px;">
-              <div class="form-group">
-                <label>Judul Seksi Agenda</label>
-                <input type="text" id="cms-agenda-judul" value="Agenda & Program Kerja" required>
-              </div>
-              <div class="typo-controls">
-                <div class="typo-controls-title">Pengaturan Huruf Judul Seksi Agenda</div>
-                <div class="typo-grid">
-                  <div>
-                    <label>Jenis Font</label>
-                    <select id="f-agenda-family">
-                      <option value="inherit">Sistem Default</option>
-                      <option value="'Poppins', sans-serif">Poppins</option>
-                      <option value="'Montserrat', sans-serif">Montserrat</option>
-                      <option value="'Inter', sans-serif">Inter</option>
-                      <option value="'Playfair Display', serif">Playfair Display (Serif)</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label>Ukuran (px)</label>
-                    <input type="number" id="f-agenda-size" min="18" max="48" value="28">
-                  </div>
-                  <div>
-                    <label>Ketebalan</label>
-                    <select id="f-agenda-weight">
-                      <option value="400">Normal (Biasa)</option>
-                      <option value="600">Semi Bold</option>
-                      <option value="700">Bold (Tebal)</option>
-                      <option value="800" selected>Extra Bold</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              <div class="typo-controls" style="margin-top: 10px;">
-                <div class="typo-controls-title">Pengaturan Huruf Judul Kartu Kegiatan</div>
-                <div class="typo-grid">
-                  <div>
-                    <label>Jenis Font</label>
-                    <select id="f-agendacard-family">
-                      <option value="inherit">Sistem Default</option>
-                      <option value="'Poppins', sans-serif">Poppins</option>
-                      <option value="'Montserrat', sans-serif">Montserrat</option>
-                      <option value="'Inter', sans-serif">Inter</option>
-                      <option value="'Playfair Display', serif">Playfair Display (Serif)</option>
-                    </select>
-                  </div>
-                  <div>
-                    <label>Ukuran (px)</label>
-                    <input type="number" id="f-agendacard-size" min="14" max="28" value="18">
-                  </div>
-                  <div>
-                    <label>Ketebalan</label>
-                    <select id="f-agendacard-weight">
-                      <option value="400">Normal (Biasa)</option>
-                      <option value="600">Semi Bold</option>
-                      <option value="700" selected>Bold (Tebal)</option>
-                      <option value="800">Extra Bold</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <button type="submit" class="btn-main" style="margin-top: 10px;">💾 Simpan Pengaturan Tipografi Agenda</button>
-            </form>
-
-            <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 18px 0;">
-
-            <!-- Form Tambah / Edit Agenda Baru -->
+            <h4 style="margin-bottom: 14px; color: var(--primary);">Kelola Agenda Kegiatan</h4>
             <h5 id="form-agenda-title" style="color: #334155; margin-bottom: 8px;">Tambah Agenda Baru</h5>
             <form id="form-agenda" onsubmit="handleSimpanAgenda(event)">
               <input type="hidden" id="edit-id-agenda" value="">
-              
               <div class="form-grid">
-                <!-- Wajib Diisi -->
                 <div class="form-group" style="grid-column: 1 / -1;">
                   <label>Nama Kegiatan *</label>
                   <input type="text" id="a-nama" placeholder="Contoh: MAKESTA Ranting Lembor 2026" required>
@@ -715,20 +591,17 @@
                 <div class="form-group" style="grid-column: 1 / -1;">
                   <label>Upload Foto Pamflet / Kegiatan (Wajib) *</label>
                   <input type="file" id="a-file-foto" accept="image/*" onchange="pratinjauFoto(this, 'prev-a')">
-                  <img id="prev-a" class="img-preview" alt="Preview Pamflet" style="height: 100px; width: 100%; object-fit: cover; margin-top: 6px;">
+                  <img id="prev-a" class="img-preview" alt="Preview Pamflet" style="height: 100px; width: 100%; object-fit: cover;">
                 </div>
-
-                <!-- Opsional (Boleh Kosong) -->
                 <div class="form-group" style="grid-column: 1 / -1;">
                   <label>Link Pendaftaran Kegiatan (Opsional)</label>
-                  <input type="url" id="a-link" placeholder="Contoh: https://forms.gle/xxxx atau nomor WhatsApp">
+                  <input type="url" id="a-link" placeholder="Contoh: https://forms.gle/xxxx">
                 </div>
                 <div class="form-group" style="grid-column: 1 / -1;">
                   <label>Deskripsi Kegiatan (Opsional)</label>
-                  <textarea id="a-desc" placeholder="Tuliskan keterangan detail kegiatan, syarat, pemateri, dll..."></textarea>
+                  <textarea id="a-desc" placeholder="Keterangan detail agenda..."></textarea>
                 </div>
               </div>
-
               <button type="submit" id="btn-submit-agenda" class="btn-main">➕ Simpan Agenda Kegiatan</button>
               <button type="button" id="btn-batal-agenda" class="btn-batal" onclick="resetFormAgenda()">Batal</button>
             </form>
@@ -736,14 +609,7 @@
             <div style="overflow-x: auto; margin-top: 18px;">
               <table>
                 <thead>
-                  <tr>
-                    <th>Pamflet</th>
-                    <th>Nama Kegiatan</th>
-                    <th>Tanggal</th>
-                    <th>Lokasi</th>
-                    <th>Link Daftar</th>
-                    <th style="width: 80px; text-align: center;">Aksi</th>
-                  </tr>
+                  <tr><th>Pamflet</th><th>Nama Kegiatan</th><th>Tanggal</th><th>Lokasi</th><th>Link</th><th style="width: 80px; text-align: center;">Aksi</th></tr>
                 </thead>
                 <tbody id="tabel-agenda-adm"></tbody>
               </table>
@@ -794,25 +660,13 @@
             <form id="form-kas" onsubmit="handleSimpanKas(event)">
               <input type="hidden" id="edit-id-kas" value="">
               <div class="form-grid">
-                <div class="form-group">
-                  <label>Tanggal</label>
-                  <input type="date" id="kas-tanggal" required>
-                </div>
+                <div class="form-group"><label>Tanggal</label><input type="date" id="kas-tanggal" required></div>
                 <div class="form-group">
                   <label>Jenis Transaksi</label>
-                  <select id="kas-jenis">
-                    <option value="Masuk">Pemasukan (+)</option>
-                    <option value="Keluar">Pengeluaran (-)</option>
-                  </select>
+                  <select id="kas-jenis"><option value="Masuk">Pemasukan (+)</option><option value="Keluar">Pengeluaran (-)</option></select>
                 </div>
-                <div class="form-group">
-                  <label>Nominal (Rp)</label>
-                  <input type="number" id="kas-jumlah" placeholder="Contoh: 50000" min="1" required>
-                </div>
-                <div class="form-group" style="grid-column: 1 / -1;">
-                  <label>Keterangan Transaksi</label>
-                  <input type="text" id="kas-keterangan" placeholder="Contoh: Iuran rutinan, Beli konsumsi rapat" required>
-                </div>
+                <div class="form-group"><label>Nominal (Rp)</label><input type="number" id="kas-jumlah" placeholder="Contoh: 50000" min="1" required></div>
+                <div class="form-group" style="grid-column: 1 / -1;"><label>Keterangan Transaksi</label><input type="text" id="kas-keterangan" placeholder="Contoh: Iuran rutinan" required></div>
               </div>
               <button type="submit" id="btn-simpan-kas" class="btn-main">Catat Transaksi Kas</button>
               <button type="button" id="btn-batal-kas" class="btn-batal" onclick="resetFormKas()">Batal</button>
@@ -831,37 +685,17 @@
             <form id="form-surat" onsubmit="handleSimpanSurat(event)">
               <input type="hidden" id="edit-id-surat" value="">
               <div class="form-grid">
-                <div class="form-group">
-                  <label>Nomor Surat</label>
-                  <input type="text" id="s-nomor" placeholder="Contoh: 01/PR-IPNU/X/2026" required>
-                </div>
-                <div class="form-group">
-                  <label>Tanggal Surat</label>
-                  <input type="date" id="s-tanggal" required>
-                </div>
-                <div class="form-group">
-                  <label>Jenis Surat</label>
-                  <select id="s-jenis">
-                    <option value="Masuk">Surat Masuk</option>
-                    <option value="Keluar">Surat Keluar</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label>Pengirim / Penerima</label>
-                  <input type="text" id="s-pihak" placeholder="Contoh: PAC IPNU Lembor" required>
-                </div>
-                <div class="form-group" style="grid-column: 1 / -1;">
-                  <label>Perihal Surat</label>
-                  <input type="text" id="s-perihal" placeholder="Contoh: Undangan Rapat Pleno" required>
-                </div>
+                <div class="form-group"><label>Nomor Surat</label><input type="text" id="s-nomor" placeholder="Contoh: 01/PR-IPNU/X/2026" required></div>
+                <div class="form-group"><label>Tanggal Surat</label><input type="date" id="s-tanggal" required></div>
+                <div class="form-group"><label>Jenis Surat</label><select id="s-jenis"><option value="Masuk">Surat Masuk</option><option value="Keluar">Surat Keluar</option></select></div>
+                <div class="form-group"><label>Pengirim / Penerima</label><input type="text" id="s-pihak" placeholder="Contoh: PAC IPNU Lembor" required></div>
+                <div class="form-group" style="grid-column: 1 / -1;"><label>Perihal Surat</label><input type="text" id="s-perihal" placeholder="Contoh: Undangan Rapat" required></div>
               </div>
               <button type="submit" id="btn-simpan-surat" class="btn-main">Simpan Arsip Surat</button>
               <button type="button" id="btn-batal-surat" class="btn-batal" onclick="resetFormSurat()">Batal</button>
             </form>
-
             <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 18px 0 10px;">
             <input type="text" id="cari-surat" class="search-input-box" placeholder="🔍 Cari berdasarkan nomor surat atau perihal..." oninput="filterTabelSurat()">
-
             <div style="overflow-x: auto;">
               <table>
                 <thead><tr><th>Tanggal</th><th>Nomor Surat</th><th>Jenis</th><th>Pihak</th><th>Perihal</th><th style="width: 80px; text-align: center;">Aksi</th></tr></thead>
@@ -886,6 +720,8 @@
     };
 
     let dataCMS = {};
+    let dataBerandaPost = [];
+    let dataTentangList = [];
     let dataPengurus = [];
     let dataPendaftar = [];
     let dataKader = [];
@@ -918,7 +754,6 @@
       navigasiKe(pageId);
     }
 
-    // NAVIGASI HALAMAN
     function navigasiKe(pageId, navBtn) {
       document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active-page'));
       document.getElementById(pageId).classList.add('active-page');
@@ -983,7 +818,6 @@
     // MODAL
     function bukaModalPendaftaran() { document.getElementById('modal-daftar').style.display = 'block'; }
     function tutupModalPendaftaran() { document.getElementById('modal-daftar').style.display = 'none'; }
-
     function bukaModalLoginAdmin() { document.getElementById('modal-login-admin').style.display = 'block'; }
     function tutupModalLoginAdmin() { document.getElementById('modal-login-admin').style.display = 'none'; }
     
@@ -1011,11 +845,13 @@
       btn.classList.add('aktif');
     }
 
-    // AMBIL DATA DARI SUPABASE
+    // AMBIL DATA SUPABASE
     async function muatSemua() {
       try {
-        const [resCMS, resPengurus, resReg, resKader, resKas, resSurat, resAgenda] = await Promise.all([
+        const [resCMS, resBeranda, resTentang, resPengurus, resReg, resKader, resKas, resSurat, resAgenda] = await Promise.all([
           fetch(`${DB_URL}/rest/v1/pengaturan_web?id=eq.1`, { headers }),
+          fetch(`${DB_URL}/rest/v1/postingan_beranda?select=*&order=id.desc`, { headers }),
+          fetch(`${DB_URL}/rest/v1/profil_ranting?select=*&order=id.desc`, { headers }),
           fetch(`${DB_URL}/rest/v1/pengurus?select=*&order=id.asc`, { headers }),
           fetch(`${DB_URL}/rest/v1/pendaftaran?select=*&order=id.desc`, { headers }),
           fetch(`${DB_URL}/rest/v1/anggota?select=*&order=id.desc`, { headers }),
@@ -1031,6 +867,8 @@
             pasangTampilanCMS();
           }
         }
+        if (resBeranda.ok) dataBerandaPost = await resBeranda.json();
+        if (resTentang.ok) dataTentangList = await resTentang.json();
         if (resPengurus.ok) dataPengurus = await resPengurus.json();
         if (resReg.ok) dataPendaftar = await resReg.json();
         if (resKader.ok) dataKader = await resKader.json();
@@ -1038,13 +876,14 @@
         if (resSurat.ok) dataSurat = await resSurat.json();
         if (resAgenda.ok) dataAgenda = await resAgenda.json();
 
+        renderPostinganBeranda();
+        renderTentangPublik();
         renderPengurusPublik();
         renderAgendaPublik();
         renderAdminTables();
       } catch (e) { console.error(e); }
     }
 
-    // TERAPKAN CMS
     function pasangTampilanCMS() {
       if (dataCMS.logo_url) {
         document.getElementById('nav-logo-ipnu').src = dataCMS.logo_url;
@@ -1062,16 +901,6 @@
         document.getElementById('nav-brand-fallback').style.display = 'none';
       }
 
-      if (dataCMS.hero_foto_url) {
-        document.getElementById('img-hero-banner').src = dataCMS.hero_foto_url;
-        document.getElementById('prev-hero').src = dataCMS.hero_foto_url;
-        document.getElementById('prev-hero').style.display = 'block';
-      }
-      if (dataCMS.tagline) document.getElementById('txt-hero-tagline').innerText = dataCMS.tagline;
-      if (dataCMS.hero_judul) document.getElementById('txt-hero-judul').innerText = dataCMS.hero_judul;
-      if (dataCMS.hero_subjudul) document.getElementById('txt-hero-subjudul').innerText = dataCMS.hero_subjudul;
-      if (dataCMS.tentang_teks) document.getElementById('txt-tentang-desc').innerText = dataCMS.tentang_teks;
-
       let typo = {};
       try {
         if (dataCMS.gaya_font_json) {
@@ -1079,29 +908,11 @@
         } else {
           typo = JSON.parse(localStorage.getItem('portal_typo_settings') || '{}');
         }
-      } catch (err) {
-        typo = JSON.parse(localStorage.getItem('portal_typo_settings') || '{}');
-      }
+      } catch (_) {}
 
       terapkanGayaElemen('nav-brand-text', typo.header, '13px', '600', 'inherit');
-      terapkanGayaElemen('txt-hero-judul', typo.hero, '40px', '800', 'inherit');
-      terapkanGayaElemen('txt-tentang-judul', typo.tentang, '28px', '800', 'inherit');
-      terapkanGayaElemen('txt-pengurus-judul', typo.pengurus, '28px', '800', 'inherit');
-      terapkanGayaElemen('txt-agenda-judul', typo.agenda, '28px', '800', 'inherit');
-
       document.getElementById('cms-brand-text').value = document.getElementById('nav-brand-text').innerText;
-      document.getElementById('cms-tagline').value = dataCMS.tagline || '';
-      document.getElementById('cms-herojudul').value = dataCMS.hero_judul || '';
-      document.getElementById('cms-herodesc').value = dataCMS.hero_subjudul || '';
-      document.getElementById('cms-tentang-judul').value = document.getElementById('txt-tentang-judul').innerText;
-      document.getElementById('cms-tentang').value = dataCMS.tentang_teks || '';
-
       if (typo.header) setFormTypo('f-header', typo.header);
-      if (typo.hero) setFormTypo('f-hero', typo.hero);
-      if (typo.tentang) setFormTypo('f-tentang', typo.tentang);
-      if (typo.pengurus) setFormTypo('f-pengurus', typo.pengurus);
-      if (typo.agenda) setFormTypo('f-agenda', typo.agenda);
-      if (typo.agendacard) setFormTypo('f-agendacard', typo.agendacard);
     }
 
     function terapkanGayaElemen(elemId, config, defSize, defWeight, defFamily) {
@@ -1126,68 +937,34 @@
       };
     }
 
-    // SIMPAN CMS
+    // SIMPAN CMS HEADER
     async function handleSimpanCMS(e) {
       e.preventDefault();
       try {
         const fileLogoIPNU = document.getElementById('cms-file-logo-ipnu');
         const fileLogoIPPNU = document.getElementById('cms-file-logo-ippnu');
-        const fileHero = document.getElementById('cms-file-herofoto');
 
         const base64IPNU = await bacaDanKompresGambar(fileLogoIPNU, 400, 0.9);
         const base64IPPNU = await bacaDanKompresGambar(fileLogoIPPNU, 400, 0.9);
-        const base64Hero = await bacaDanKompresGambar(fileHero, 1200, 0.8);
 
-        const typoSettings = {
-          header: getFormTypo('f-header'),
-          hero: getFormTypo('f-hero'),
-          tentang: getFormTypo('f-tentang'),
-          pengurus: getFormTypo('f-pengurus'),
-          agenda: getFormTypo('f-agenda'),
-          agendacard: getFormTypo('f-agendacard')
-        };
+        const typoSettings = { header: getFormTypo('f-header') };
         localStorage.setItem('portal_typo_settings', JSON.stringify(typoSettings));
 
-        const payload = {
-          tagline: document.getElementById('cms-tagline').value,
-          hero_judul: document.getElementById('cms-herojudul').value,
-          hero_subjudul: document.getElementById('cms-herodesc').value,
-          tentang_teks: document.getElementById('cms-tentang').value
-        };
-
+        const payload = {};
         if (base64IPNU) payload.logo_url = base64IPNU;
         if (base64IPPNU) payload.logo_ippnu_url = base64IPPNU;
-        if (base64Hero) payload.hero_foto_url = base64Hero;
-
         try { payload.gaya_font_json = JSON.stringify(typoSettings); } catch (_) {}
 
         document.getElementById('nav-brand-text').innerText = document.getElementById('cms-brand-text').value;
-        document.getElementById('txt-tentang-judul').innerText = document.getElementById('cms-tentang-judul').value;
-        if (document.getElementById('cms-pengurus-judul')) document.getElementById('txt-pengurus-judul').innerText = document.getElementById('cms-pengurus-judul').value;
-        if (document.getElementById('cms-agenda-judul')) document.getElementById('txt-agenda-judul').innerText = document.getElementById('cms-agenda-judul').value;
-
         terapkanGayaElemen('nav-brand-text', typoSettings.header, '13px', '600', 'inherit');
-        terapkanGayaElemen('txt-hero-judul', typoSettings.hero, '40px', '800', 'inherit');
-        terapkanGayaElemen('txt-tentang-judul', typoSettings.tentang, '28px', '800', 'inherit');
-        terapkanGayaElemen('txt-pengurus-judul', typoSettings.pengurus, '28px', '800', 'inherit');
-        terapkanGayaElemen('txt-agenda-judul', typoSettings.agenda, '28px', '800', 'inherit');
 
-        try {
-          await fetch(`${DB_URL}/rest/v1/pengaturan_web?id=eq.1`, {
-            method: 'PATCH',
-            headers,
-            body: JSON.stringify(payload)
-          });
-        } catch (e) {
-          delete payload.gaya_font_json;
-          await fetch(`${DB_URL}/rest/v1/pengaturan_web?id=eq.1`, {
-            method: 'PATCH',
-            headers,
-            body: JSON.stringify(payload)
-          });
-        }
+        await fetch(`${DB_URL}/rest/v1/pengaturan_web?id=eq.1`, {
+          method: 'PATCH',
+          headers,
+          body: JSON.stringify(payload)
+        });
 
-        alert('Pengaturan tampilan dan tipografi font berhasil disimpan!');
+        alert('Pengaturan header berhasil disimpan!');
         muatSemua();
       } catch (err) {
         alert('Gagal simpan: ' + err.message);
@@ -1195,40 +972,42 @@
     }
 
     // ==========================================
-    // CRUD: AGENDA (FOTO PAMFLET, LINK, DESKRIPSI)
+    // 1. FITUR POSTINGAN BERANDA (MULTI-POST)
     // ==========================================
-    async function handleSimpanAgenda(e) {
-      e.preventDefault();
-      const idEdit = document.getElementById('edit-id-agenda').value;
-      const btn = document.getElementById('btn-submit-agenda');
-      const fileFoto = document.getElementById('a-file-foto');
+    function bukaFormBeranda() {
+      document.getElementById('panel-form-beranda').style.display = 'block';
+      document.getElementById('panel-form-beranda').scrollIntoView({ behavior: 'smooth' });
+    }
 
-      // Validasi wajib foto jika membuat agenda baru
-      if (!idEdit && (!fileFoto.files || fileFoto.files.length === 0)) {
-        alert('Harap unggah foto pamflet/kegiatan terlebih dahulu!');
-        fileFoto.focus();
-        return;
-      }
+    function tutupFormBeranda() {
+      document.getElementById('form-post-beranda').reset();
+      document.getElementById('edit-id-beranda').value = '';
+      document.getElementById('prev-b').style.display = 'none';
+      document.getElementById('title-form-beranda').innerText = 'Tambah Postingan Beranda';
+      document.getElementById('btn-submit-beranda').innerText = '💾 Simpan Postingan';
+      document.getElementById('panel-form-beranda').style.display = 'none';
+    }
+
+    async function handleSimpanPostBeranda(e) {
+      e.preventDefault();
+      const idEdit = document.getElementById('edit-id-beranda').value;
+      const btn = document.getElementById('btn-submit-beranda');
+      const fileFoto = document.getElementById('b-file-foto');
 
       btn.disabled = true;
       btn.innerText = 'Menyimpan...';
 
       try {
-        const base64Foto = await bacaDanKompresGambar(fileFoto, 900, 0.85);
+        const base64Foto = await bacaDanKompresGambar(fileFoto, 1200, 0.85);
 
         const payload = {
-          nama_kegiatan: document.getElementById('a-nama').value,
-          tanggal: document.getElementById('a-tanggal').value,
-          lokasi: document.getElementById('a-lokasi').value,
-          link_daftar: document.getElementById('a-link').value.trim(),
-          deskripsi: document.getElementById('a-desc').value.trim()
+          judul: document.getElementById('b-judul').value,
+          tagline: document.getElementById('b-tagline').value,
+          deskripsi: document.getElementById('b-desc').value
         };
+        if (base64Foto) payload.foto_url = base64Foto;
 
-        if (base64Foto) {
-          payload.foto_url = base64Foto;
-        }
-
-        let url = `${DB_URL}/rest/v1/agenda`;
+        let url = `${DB_URL}/rest/v1/postingan_beranda`;
         let method = 'POST';
         if (idEdit) {
           url += `?id=eq.${idEdit}`;
@@ -1236,115 +1015,160 @@
         }
 
         const res = await fetch(url, { method, headers, body: JSON.stringify(payload) });
-        if (!res.ok) {
-          const errTxt = await res.text();
-          throw new Error(`Gagal menyimpan agenda: ${errTxt}`);
-        }
+        if (!res.ok) throw new Error('Gagal menyimpan postingan beranda');
 
-        alert(idEdit ? 'Agenda kegiatan berhasil diperbarui!' : 'Agenda kegiatan baru berhasil ditambahkan!');
-        resetFormAgenda();
+        alert(idEdit ? 'Postingan beranda berhasil diperbarui!' : 'Postingan beranda baru berhasil diterbitkan!');
+        tutupFormBeranda();
         muatSemua();
       } catch (err) {
         alert(err.message);
       } finally {
         btn.disabled = false;
-        btn.innerText = '➕ Simpan Agenda Kegiatan';
+        btn.innerText = '💾 Simpan Postingan';
       }
     }
 
-    function editAgenda(id) {
-      const a = dataAgenda.find(item => item.id === id);
-      if (!a) return;
+    function editPostBeranda(id) {
+      const p = dataBerandaPost.find(item => item.id === id);
+      if (!p) return;
 
-      document.getElementById('edit-id-agenda').value = a.id;
-      document.getElementById('a-nama').value = a.nama_kegiatan;
-      document.getElementById('a-tanggal').value = a.tanggal;
-      document.getElementById('a-lokasi').value = a.lokasi;
-      document.getElementById('a-link').value = a.link_daftar || '';
-      document.getElementById('a-desc').value = a.deskripsi || '';
-
-      if (a.foto_url) {
-        document.getElementById('prev-a').src = a.foto_url;
-        document.getElementById('prev-a').style.display = 'block';
+      document.getElementById('edit-id-beranda').value = p.id;
+      document.getElementById('b-tagline').value = p.tagline || '';
+      document.getElementById('b-judul').value = p.judul;
+      document.getElementById('b-desc').value = p.deskripsi;
+      if (p.foto_url) {
+        document.getElementById('prev-b').src = p.foto_url;
+        document.getElementById('prev-b').style.display = 'block';
       } else {
-        document.getElementById('prev-a').style.display = 'none';
+        document.getElementById('prev-b').style.display = 'none';
       }
 
-      document.getElementById('form-agenda-title').innerText = 'Edit Agenda Kegiatan';
-      document.getElementById('btn-submit-agenda').innerText = '💾 Simpan Perubahan Agenda';
-      document.getElementById('btn-batal-agenda').style.display = 'inline-block';
-      document.getElementById('form-agenda').scrollIntoView({ behavior: 'smooth' });
+      document.getElementById('title-form-beranda').innerText = 'Edit Postingan Beranda';
+      document.getElementById('btn-submit-beranda').innerText = '💾 Simpan Perubahan Postingan';
+      bukaFormBeranda();
     }
 
-    function resetFormAgenda() {
-      document.getElementById('form-agenda').reset();
-      document.getElementById('edit-id-agenda').value = '';
-      document.getElementById('a-tanggal').value = hariIni;
-      document.getElementById('prev-a').style.display = 'none';
-      document.getElementById('form-agenda-title').innerText = 'Tambah Agenda Baru';
-      document.getElementById('btn-submit-agenda').innerText = '➕ Simpan Agenda Kegiatan';
-      document.getElementById('btn-batal-agenda').style.display = 'none';
-    }
-
-    // TAMPILAN AGENDA PUBLIK
-    function renderAgendaPublik() {
-      const wadah = document.getElementById('wadah-agenda-publik');
+    function renderPostinganBeranda() {
+      const wadah = document.getElementById('wadah-postingan-beranda');
       if (!wadah) return;
 
-      if (dataAgenda.length === 0) {
-        wadah.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; color: #94a3b8; padding: 40px 0;">Belum ada agenda terdekat.</div>';
-        return;
-      }
-
-      // Ambil Tipografi Kartu Agenda
-      let typo = {};
-      try {
-        if (dataCMS.gaya_font_json) {
-          typo = typeof dataCMS.gaya_font_json === 'string' ? JSON.parse(dataCMS.gaya_font_json) : dataCMS.gaya_font_json;
-        } else {
-          typo = JSON.parse(localStorage.getItem('portal_typo_settings') || '{}');
-        }
-      } catch (_) {}
-
-      const cardTypo = typo.agendacard || {};
-      const fSize = cardTypo.size ? cardTypo.size + 'px' : '18px';
-      const fWeight = cardTypo.weight || '700';
-      const fFamily = cardTypo.family || 'inherit';
-
-      wadah.innerHTML = dataAgenda.map(a => {
-        // Foto di bagian atas
-        const fotoHtml = a.foto_url 
-          ? `<div class="agenda-pamflet-box"><img src="${a.foto_url}" class="agenda-pamflet-img" alt="${a.nama_kegiatan}"></div>`
-          : `<div class="agenda-pamflet-box" style="display:flex;align-items:center;justify-content:center;color:#94a3b8;font-size:13px;">Pamflet Belum Diunggah</div>`;
-
-        // Tombol Link Pendaftaran
-        const tombolDaftar = a.link_daftar 
-          ? `<a href="${a.link_daftar}" target="_blank" class="btn-agenda-daftar">Daftar Sekarang ↗</a>` 
-          : '';
-
-        // Deskripsi Kegiatan
-        const descHtml = a.deskripsi 
-          ? `<p class="agenda-desc">${a.deskripsi}</p>` 
-          : `<p class="agenda-desc" style="color:#94a3b8; font-style: italic;">Tidak ada deskripsi tambahan.</p>`;
-
-        return `
-          <div class="card-agenda">
-            ${fotoHtml}
-            <div class="agenda-body">
-              <h3 class="agenda-judul" style="font-size: ${fSize}; font-weight: ${fWeight}; font-family: ${fFamily};">${a.nama_kegiatan}</h3>
-              <div class="agenda-meta">
-                <span>📅 <b>Tanggal:</b> ${a.tanggal}</span>
-                <span>📍 <b>Lokasi:</b> ${a.lokasi}</span>
+      // Jika database masih kosong, beri sampel default yang elegan
+      if (dataBerandaPost.length === 0) {
+        wadah.innerHTML = `
+          <div class="hero-card">
+            <div class="hero-img-box">
+              <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80" class="hero-img" alt="Foto Bersama">
+            </div>
+            <div class="hero-text-content">
+              <div class="hero-meta">PR IPNU IPPNU LEMBOR — WE ARE RESILIENT LEADER</div>
+              <h1 class="hero-title">Bertumbuh Bersama. Menguatkan Karakter.</h1>
+              <p class="hero-desc">Setiap proses belajar membuka ruang untuk mengenal diri, mengabdi pada umat, dan berkembang bersama generasi muda Desa Lembor.</p>
+              <div class="hero-btns">
+                <button class="btn-main" onclick="bukaModalPendaftaran()">Gabung Sekarang ↗</button>
+                <button class="btn-second" onclick="navigasiKe('page-tentang')">Kenali Organisasi →</button>
               </div>
-              ${descHtml}
-              ${tombolDaftar}
             </div>
           </div>
         `;
-      }).join('');
+        return;
+      }
+
+      wadah.innerHTML = dataBerandaPost.map(p => `
+        <div class="hero-card">
+          <div class="hero-img-box">
+            <img src="${p.foto_url || 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80'}" class="hero-img" alt="${p.judul}">
+          </div>
+          <div class="hero-text-content">
+            <div class="hero-meta">${p.tagline || 'PR IPNU IPPNU LEMBOR'}</div>
+            <h1 class="hero-title">${p.judul}</h1>
+            <p class="hero-desc">${p.deskripsi}</p>
+            <div class="hero-btns">
+              <button class="btn-main" onclick="bukaModalPendaftaran()">Gabung Sekarang ↗</button>
+              <button class="btn-second" onclick="navigasiKe('page-tentang')">Kenali Organisasi →</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
     }
 
+    // ==========================================
+    // 2. FITUR TENTANG, VISI & MISI (ON-DEMAND FORM)
+    // ==========================================
+    function bukaFormTentang() {
+      document.getElementById('panel-form-tentang').style.display = 'block';
+      document.getElementById('panel-form-tentang').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function tutupFormTentang() {
+      document.getElementById('form-tentang-visi').reset();
+      document.getElementById('edit-id-tentang').value = '';
+      document.getElementById('panel-form-tentang').style.display = 'none';
+    }
+
+    async function handleSimpanTentangVisi(e) {
+      e.preventDefault();
+      const idEdit = document.getElementById('edit-id-tentang').value;
+      const btn = document.getElementById('btn-submit-tentang');
+
+      btn.disabled = true;
+      btn.innerText = 'Menyimpan...';
+
+      try {
+        const payload = {
+          judul: document.getElementById('t-judul').value,
+          deskripsi: document.getElementById('t-desc').value,
+          visi: document.getElementById('t-visi').value,
+          misi: document.getElementById('t-misi').value
+        };
+
+        let url = `${DB_URL}/rest/v1/profil_ranting`;
+        let method = 'POST';
+        if (idEdit) {
+          url += `?id=eq.${idEdit}`;
+          method = 'PATCH';
+        }
+
+        const res = await fetch(url, { method, headers, body: JSON.stringify(payload) });
+        if (!res.ok) throw new Error('Gagal menyimpan profil & visi misi');
+
+        alert('Profil, Visi, dan Misi berhasil disimpan!');
+        tutupFormTentang();
+        muatSemua();
+      } catch (err) {
+        alert(err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerText = '💾 Simpan Profil & Visi Misi';
+      }
+    }
+
+    function editTentangVisi(id) {
+      const t = dataTentangList.find(item => item.id === id);
+      if (!t) return;
+
+      document.getElementById('edit-id-tentang').value = t.id;
+      document.getElementById('t-judul').value = t.judul;
+      document.getElementById('t-desc').value = t.deskripsi;
+      document.getElementById('t-visi').value = t.visi || '';
+      document.getElementById('t-misi').value = t.misi || '';
+
+      document.getElementById('title-form-tentang').innerText = 'Edit Profil & Visi Misi';
+      bukaFormTentang();
+    }
+
+    function renderTentangPublik() {
+      if (dataTentangList.length > 0) {
+        const t = dataTentangList[0]; // Tampilkan data profil terbaru
+        document.getElementById('txt-tentang-judul').innerText = t.judul;
+        document.getElementById('txt-tentang-desc').innerText = t.deskripsi;
+        if (t.visi) document.getElementById('txt-visi-content').innerText = t.visi;
+        if (t.misi) document.getElementById('txt-misi-content').innerText = t.misi;
+      }
+    }
+
+    // ==========================================
     // CRUD: PENGURUS
+    // ==========================================
     async function handleSimpanPengurus(e) {
       e.preventDefault();
       const idEdit = document.getElementById('edit-id-pengurus').value;
@@ -1411,7 +1235,92 @@
       document.getElementById('btn-batal-pengurus').style.display = 'none';
     }
 
-    // CRUD: ANGGOTA
+    // ==========================================
+    // CRUD: AGENDA
+    // ==========================================
+    async function handleSimpanAgenda(e) {
+      e.preventDefault();
+      const idEdit = document.getElementById('edit-id-agenda').value;
+      const btn = document.getElementById('btn-submit-agenda');
+      const fileFoto = document.getElementById('a-file-foto');
+
+      if (!idEdit && (!fileFoto.files || fileFoto.files.length === 0)) {
+        alert('Harap unggah foto pamflet/kegiatan terlebih dahulu!');
+        fileFoto.focus();
+        return;
+      }
+
+      btn.disabled = true;
+      btn.innerText = 'Menyimpan...';
+
+      try {
+        const base64Foto = await bacaDanKompresGambar(fileFoto, 900, 0.85);
+
+        const payload = {
+          nama_kegiatan: document.getElementById('a-nama').value,
+          tanggal: document.getElementById('a-tanggal').value,
+          lokasi: document.getElementById('a-lokasi').value,
+          link_daftar: document.getElementById('a-link').value.trim(),
+          deskripsi: document.getElementById('a-desc').value.trim()
+        };
+        if (base64Foto) payload.foto_url = base64Foto;
+
+        let url = `${DB_URL}/rest/v1/agenda`;
+        let method = 'POST';
+        if (idEdit) {
+          url += `?id=eq.${idEdit}`;
+          method = 'PATCH';
+        }
+
+        const res = await fetch(url, { method, headers, body: JSON.stringify(payload) });
+        if (!res.ok) throw new Error('Gagal menyimpan agenda');
+
+        alert(idEdit ? 'Agenda kegiatan berhasil diperbarui!' : 'Agenda kegiatan baru berhasil ditambahkan!');
+        resetFormAgenda();
+        muatSemua();
+      } catch (err) {
+        alert(err.message);
+      } finally {
+        btn.disabled = false;
+        btn.innerText = '➕ Simpan Agenda Kegiatan';
+      }
+    }
+
+    function editAgenda(id) {
+      const a = dataAgenda.find(item => item.id === id);
+      if (!a) return;
+
+      document.getElementById('edit-id-agenda').value = a.id;
+      document.getElementById('a-nama').value = a.nama_kegiatan;
+      document.getElementById('a-tanggal').value = a.tanggal;
+      document.getElementById('a-lokasi').value = a.lokasi;
+      document.getElementById('a-link').value = a.link_daftar || '';
+      document.getElementById('a-desc').value = a.deskripsi || '';
+
+      if (a.foto_url) {
+        document.getElementById('prev-a').src = a.foto_url;
+        document.getElementById('prev-a').style.display = 'block';
+      }
+
+      document.getElementById('form-agenda-title').innerText = 'Edit Agenda Kegiatan';
+      document.getElementById('btn-submit-agenda').innerText = '💾 Simpan Perubahan Agenda';
+      document.getElementById('btn-batal-agenda').style.display = 'inline-block';
+      document.getElementById('form-agenda').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function resetFormAgenda() {
+      document.getElementById('form-agenda').reset();
+      document.getElementById('edit-id-agenda').value = '';
+      document.getElementById('a-tanggal').value = hariIni;
+      document.getElementById('prev-a').style.display = 'none';
+      document.getElementById('form-agenda-title').innerText = 'Tambah Agenda Baru';
+      document.getElementById('btn-submit-agenda').innerText = '➕ Simpan Agenda Kegiatan';
+      document.getElementById('btn-batal-agenda').style.display = 'none';
+    }
+
+    // ==========================================
+    // CRUD: ANGGOTA, KAS, SURAT
+    // ==========================================
     async function handleSimpanAnggota(e) {
       e.preventDefault();
       const idEdit = document.getElementById('edit-id-anggota').value;
@@ -1474,15 +1383,11 @@
       document.getElementById('btn-batal-anggota').style.display = 'none';
     }
 
-    // CRUD: KAS
     async function handleSimpanKas(e) {
       e.preventDefault();
       const idEdit = document.getElementById('edit-id-kas').value;
       const btn = document.getElementById('btn-simpan-kas');
-      if (btn) {
-        btn.disabled = true;
-        btn.innerText = 'Menyimpan...';
-      }
+      if (btn) btn.disabled = true;
 
       const payload = {
         tanggal: document.getElementById('kas-tanggal').value || hariIni,
@@ -1500,12 +1405,9 @@
         }
 
         const res = await fetch(url, { method, headers, body: JSON.stringify(payload) });
-        if (!res.ok) {
-          const errText = await res.text();
-          throw new Error(`Gagal menyimpan: ${res.status} - ${errText}`);
-        }
+        if (!res.ok) throw new Error('Gagal mencatat transaksi kas');
 
-        alert(idEdit ? 'Transaksi kas berhasil diperbarui!' : 'Transaksi kas berhasil dicatat!');
+        alert(idEdit ? 'Transaksi kas diperbarui!' : 'Transaksi kas dicatat!');
         resetFormKas();
         muatSemua();
       } catch (err) {
@@ -1538,15 +1440,11 @@
       document.getElementById('btn-batal-kas').style.display = 'none';
     }
 
-    // CRUD: SURAT
     async function handleSimpanSurat(e) {
       e.preventDefault();
       const idEdit = document.getElementById('edit-id-surat').value;
       const btn = document.getElementById('btn-simpan-surat');
-      if (btn) {
-        btn.disabled = true;
-        btn.innerText = 'Menyimpan...';
-      }
+      if (btn) btn.disabled = true;
 
       const payload = {
         nomor_surat: document.getElementById('s-nomor').value,
@@ -1567,7 +1465,7 @@
         const res = await fetch(url, { method, headers, body: JSON.stringify(payload) });
         if (!res.ok) throw new Error('Gagal memproses arsip surat');
 
-        alert(idEdit ? 'Arsip surat berhasil diperbarui!' : 'Arsip surat berhasil disimpan!');
+        alert(idEdit ? 'Arsip surat diperbarui!' : 'Arsip surat disimpan!');
         resetFormSurat();
         muatSemua();
       } catch (err) {
@@ -1601,7 +1499,7 @@
       document.getElementById('btn-batal-surat').style.display = 'none';
     }
 
-    // FILTER ANGGOTA
+    // FILTER TABEL
     function filterTabelAnggota() {
       const keyword = (document.getElementById('cari-anggota').value || '').toLowerCase().trim();
       const rows = dataKader.filter(k => 
@@ -1634,7 +1532,6 @@
       `).join('');
     }
 
-    // FILTER SURAT
     function filterTabelSurat() {
       const keyword = (document.getElementById('cari-surat').value || '').toLowerCase().trim();
       const rows = dataSurat.filter(s => 
@@ -1665,9 +1562,10 @@
       `).join('');
     }
 
-    // RENDER PENGURUS PUBLIK
+    // RENDER PUBLIK LAINNYA
     function renderPengurusPublik() {
       const wadah = document.getElementById('wadah-pengurus');
+      if (!wadah) return;
       if (dataPengurus.length === 0) {
         wadah.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; color: #94a3b8;">Belum ada pengurus yang ditambahkan.</div>';
         return;
@@ -1678,6 +1576,33 @@
           <div class="pengurus-nama">${p.nama}</div>
           <div class="pengurus-jabatan">${p.jabatan}</div>
           <span class="pengurus-badge ${p.organisasi === 'IPNU' ? 'badge-ipnu' : 'badge-ippnu'}">${p.organisasi}</span>
+        </div>
+      `).join('');
+    }
+
+    function renderAgendaPublik() {
+      const wadah = document.getElementById('wadah-agenda-publik');
+      if (!wadah) return;
+
+      if (dataAgenda.length === 0) {
+        wadah.innerHTML = '<div style="grid-column: 1 / -1; text-align: center; color: #94a3b8; padding: 40px 0;">Belum ada agenda terdekat.</div>';
+        return;
+      }
+
+      wadah.innerHTML = dataAgenda.map(a => `
+        <div class="card-agenda">
+          <div class="agenda-pamflet-box">
+            <img src="${a.foto_url || 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80'}" class="agenda-pamflet-img" alt="${a.nama_kegiatan}">
+          </div>
+          <div class="agenda-body">
+            <h3 class="agenda-judul">${a.nama_kegiatan}</h3>
+            <div class="agenda-meta">
+              <span>📅 <b>Tanggal:</b> ${a.tanggal}</span>
+              <span>📍 <b>Lokasi:</b> ${a.lokasi}</span>
+            </div>
+            <p class="agenda-desc">${a.deskripsi || 'Tidak ada deskripsi tambahan.'}</p>
+            ${a.link_daftar ? `<a href="${a.link_daftar}" target="_blank" class="btn-agenda-daftar">Daftar Sekarang ↗</a>` : ''}
+          </div>
         </div>
       `).join('');
     }
@@ -1705,9 +1630,37 @@
       muatSemua();
     }
 
-    // RENDER TABEL ADMIN
+    // RENDER TABEL ADMIN LENGKAP
     function renderAdminTables() {
-      // 1. Pengurus
+      // 1. Postingan Beranda
+      document.getElementById('tabel-beranda-adm').innerHTML = dataBerandaPost.map(p => `
+        <tr>
+          <td><img src="${p.foto_url || ''}" style="width: 45px; height: 35px; border-radius: 4px; object-fit: cover; background: #e2e8f0;"></td>
+          <td><b>${p.judul}</b></td>
+          <td>${p.tagline || '-'}</td>
+          <td>${(p.deskripsi || '').substring(0, 50)}...</td>
+          <td style="white-space: nowrap; text-align: center;">
+            <button class="btn-sm-edit" title="Edit Postingan" onclick="editPostBeranda(${p.id})">✏️</button>
+            <button class="btn-sm-del" title="Hapus Postingan" onclick="hapusUniversal('postingan_beranda', ${p.id})">🗑️</button>
+          </td>
+        </tr>
+      `).join('');
+
+      // 2. Tentang & Visi Misi
+      document.getElementById('tabel-tentang-adm').innerHTML = dataTentangList.map(t => `
+        <tr>
+          <td><b>${t.judul}</b></td>
+          <td>${(t.deskripsi || '').substring(0, 45)}...</td>
+          <td>${(t.visi || '').substring(0, 45)}...</td>
+          <td>${(t.misi || '').substring(0, 45)}...</td>
+          <td style="white-space: nowrap; text-align: center;">
+            <button class="btn-sm-edit" title="Edit Profil & Visi Misi" onclick="editTentangVisi(${t.id})">✏️</button>
+            <button class="btn-sm-del" title="Hapus Profil" onclick="hapusUniversal('profil_ranting', ${t.id})">🗑️</button>
+          </td>
+        </tr>
+      `).join('');
+
+      // 3. Pengurus
       document.getElementById('tabel-pengurus-adm').innerHTML = dataPengurus.map(p => `
         <tr>
           <td><img src="${p.foto_url || ''}" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; background: #e2e8f0;"></td>
@@ -1721,7 +1674,7 @@
         </tr>
       `).join('');
 
-      // 2. Pendaftar
+      // 4. Pendaftar
       document.getElementById('count-pendaftar').innerText = dataPendaftar.length;
       document.getElementById('tabel-pendaftar-adm').innerHTML = dataPendaftar.map(r => {
         const isSudah = (r.alasan_gabung || '').includes('[Makesta: Sudah]');
@@ -1745,10 +1698,10 @@
         `;
       }).join('');
 
-      // 3. Anggota
+      // 5. Anggota
       renderBarisAnggota(dataKader);
 
-      // 4. Kas
+      // 6. Kas
       document.getElementById('tabel-kas-adm').innerHTML = dataKas.map(k => `
         <tr>
           <td>${k.tanggal}</td>
@@ -1762,10 +1715,10 @@
         </tr>
       `).join('');
 
-      // 5. Surat
+      // 7. Surat
       renderBarisSurat(dataSurat);
 
-      // 6. Agenda Admin
+      // 8. Agenda Admin
       document.getElementById('tabel-agenda-adm').innerHTML = dataAgenda.map(a => `
         <tr>
           <td><img src="${a.foto_url || ''}" style="width: 36px; height: 36px; border-radius: 6px; object-fit: cover; background: #e2e8f0;"></td>
