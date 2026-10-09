@@ -101,7 +101,7 @@
     .agenda-desc { font-size: 13px; color: #475569; line-height: 1.6; margin-bottom: 18px; flex: 1; }
     .btn-agenda-daftar { display: inline-block; text-align: center; background: var(--primary); color: white; padding: 10px 18px; border-radius: 20px; font-size: 13px; font-weight: 700; text-decoration: none; transition: 0.2s; border: none; }
 
-    /* DASHBOARD KAS RINGKASAN */
+    /* DASHBOARD KAS */
     .kas-summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 20px; }
     .kas-card-summary { padding: 18px 20px; border-radius: 14px; border: 1px solid #e2e8f0; display: flex; flex-direction: column; gap: 4px; }
     .kas-card-label { font-size: 11px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; }
@@ -131,7 +131,6 @@
     input[type="file"] { padding: 6px; background: #fff; }
     textarea { height: 80px; resize: vertical; }
 
-    /* WIDGET KONTROL TIPOGRAFI / FONT */
     .typo-controls { background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 10px; padding: 12px 14px; margin: 12px 0; }
     .typo-controls-title { font-size: 11px; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
     .typo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; }
@@ -155,7 +154,6 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* RESPONSIVE SMARTPHONE */
     @media (max-width: 850px) {
       .nav-inner { padding: 10px 16px; }
       .brand-wrap { gap: 6px; }
@@ -404,7 +402,7 @@
 
         <div class="admin-content">
           
-          <!-- 1. HEADER (LENGKAP TIPOGRAFI) -->
+          <!-- 1. HEADER -->
           <div id="adm-header" class="adm-tab-section">
             <h4 style="margin-bottom: 14px; color: var(--primary);">Atur Logo Organisasi & Tipografi Header</h4>
             <form onsubmit="handleSimpanCMS(event)">
@@ -425,7 +423,6 @@
                 <input type="text" id="cms-brand-text" placeholder="Contoh: PR IPNU IPPNU LEMBOR" required>
               </div>
 
-              <!-- Tipografi Header -->
               <div class="typo-controls">
                 <div class="typo-controls-title">Pengaturan Huruf Judul Header</div>
                 <div class="typo-grid">
@@ -459,9 +456,8 @@
             </form>
           </div>
 
-          <!-- 2. BERANDA: ATUR HEADER SEKSI + INPUT POSTINGAN DENGAN TANGGAL -->
+          <!-- 2. BERANDA -->
           <div id="adm-beranda" class="adm-tab-section" style="display: none;">
-            <!-- Form Edit Judul & Subjudul Beranda Publik + Tipografi -->
             <form onsubmit="handleSimpanCMS(event)" style="background: #f8fafc; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 24px;">
               <h5 style="color: var(--primary); margin-bottom: 12px;">Pengaturan Teks Bagian Atas Beranda</h5>
               <div class="form-grid">
@@ -511,7 +507,6 @@
               <button class="btn-main" onclick="bukaFormBeranda()">➕ Tambah Postingan Baru</button>
             </div>
 
-            <!-- Form On-Demand Beranda -->
             <div id="panel-form-beranda" class="form-panel-box">
               <h5 id="title-form-beranda" style="color: #334155; margin-bottom: 12px;">Tambah Postingan Beranda</h5>
               <form id="form-post-beranda" onsubmit="handleSimpanPostBeranda(event)">
@@ -561,7 +556,7 @@
             </div>
           </div>
 
-          <!-- 3. TENTANG & VISI-MISI (LENGKAP EDIT SUB-JUDUL & TIPOGRAFI) -->
+          <!-- 3. TENTANG & VISI-MISI -->
           <div id="adm-tentang" class="adm-tab-section" style="display: none;">
             <form onsubmit="handleSimpanCMS(event)" style="background: #f8fafc; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 24px;">
               <h5 style="color: var(--primary); margin-bottom: 12px;">Pengaturan Teks & Font Seksi Tentang</h5>
@@ -655,7 +650,7 @@
             </div>
           </div>
 
-          <!-- 4. PENGURUS (LENGKAP TIPOGRAFI) -->
+          <!-- 4. PENGURUS -->
           <div id="adm-pengurus" class="adm-tab-section" style="display: none;">
             <form onsubmit="handleSimpanCMS(event)" style="background: #f8fafc; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 24px;">
               <h5 style="color: var(--primary); margin-bottom: 12px;">Pengaturan Judul & Font Seksi Pengurus</h5>
@@ -720,7 +715,7 @@
             </div>
           </div>
 
-          <!-- 5. AGENDA (LENGKAP TIPOGRAFI) -->
+          <!-- 5. AGENDA -->
           <div id="adm-agenda" class="adm-tab-section" style="display: none;">
             <form onsubmit="handleSimpanCMS(event)" style="background: #f8fafc; padding: 18px; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 24px;">
               <h5 style="color: var(--primary); margin-bottom: 12px;">Pengaturan Judul & Font Seksi Agenda</h5>
@@ -842,7 +837,7 @@
             </div>
           </div>
 
-          <!-- 8. KAS KEUANGAN (3 DASHBOARD) -->
+          <!-- 8. KAS KEUANGAN -->
           <div id="adm-kas" class="adm-tab-section" style="display: none;">
             <h4 style="margin-bottom: 14px; color: var(--primary);">Catatan Kas Organisasi</h4>
 
@@ -1069,9 +1064,15 @@
           const cmsList = await resCMS.json();
           if (cmsList.length > 0) {
             dataCMS = cmsList[0];
-            pasangTampilanCMS();
           }
         }
+
+        // BACA JUGA CADANGAN LOCALSTORAGE
+        const cadanganTeks = JSON.parse(localStorage.getItem('portal_text_settings') || '{}');
+        dataCMS = { ...dataCMS, ...cadanganTeks };
+
+        pasangTampilanCMS();
+
         if (resBeranda.ok) dataBerandaPost = await resBeranda.json();
         if (resTentang.ok) dataTentangList = await resTentang.json();
         if (resPengurus.ok) dataPengurus = await resPengurus.json();
@@ -1210,6 +1211,9 @@
           pengurus_judul_publik: document.getElementById('cms-pengurus-judul').value,
           agenda_judul_publik: document.getElementById('cms-agenda-judul').value
         };
+
+        // Simpan cadangan teks ke localStorage
+        localStorage.setItem('portal_text_settings', JSON.stringify(payload));
 
         if (base64IPNU) payload.logo_url = base64IPNU;
         if (base64IPPNU) payload.logo_ippnu_url = base64IPPNU;
