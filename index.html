@@ -20,24 +20,56 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
     body { background-color: var(--bg); color: var(--text-dark); line-height: 1.6; }
 
-    /* NAVBAR */
-    header { background: #ffffff; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #f1f5f9; }
+    /* HEADER & NAVBAR */
+    header { background: #ffffff; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #e2e8f0; }
     .nav-inner { max-width: 1200px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 14px 24px; }
     .brand-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; cursor: pointer; }
     .logos-container { display: flex; align-items: center; gap: 8px; }
     .brand-logo { max-height: 42px; object-fit: contain; }
     .brand-text { font-size: 13px; color: var(--text-muted); font-weight: 600; border-left: 2px solid #e2e8f0; padding-left: 12px; }
-    
-    nav { display: flex; align-items: center; gap: 8px; }
-    .nav-link { text-decoration: none; color: #334155; font-size: 14px; font-weight: 600; padding: 8px 14px; border-radius: 20px; transition: 0.2s; cursor: pointer; border: none; background: transparent; }
-    .nav-link:hover { color: var(--primary); background: #f8fafc; }
-    .nav-link.active-nav { color: var(--primary); background: #ecfdf5; font-weight: 700; }
 
+    /* TOMBOL AKSI ATAS (DEFAULT LAPTOP) */
     .nav-actions { display: flex; align-items: center; gap: 10px; }
     .btn-nav-daftar { background: #065f46; color: white !important; padding: 9px 18px; border-radius: 20px; font-size: 13px; font-weight: 700; text-decoration: none; border: none; cursor: pointer; transition: 0.2s; }
     .btn-nav-daftar:hover { background: #044e39; }
     .btn-nav-admin { background: transparent; color: #334155; border: 1px solid #cbd5e1; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; transition: 0.2s; }
     .btn-nav-admin:hover { background: #f8fafc; border-color: #94a3b8; }
+
+    /* BILAH MENU DI BAWAH HEADER (DEFAULT LAPTOP) */
+    .sub-navbar { background: #f8fafc; border-top: 1px solid #f1f5f9; border-bottom: 1px solid #e2e8f0; }
+    .sub-navbar-inner { max-width: 1200px; margin: auto; display: flex; align-items: center; gap: 8px; padding: 8px 24px; }
+    .nav-link { text-decoration: none; color: #334155; font-size: 13px; font-weight: 600; padding: 7px 16px; border-radius: 20px; transition: 0.2s; cursor: pointer; border: none; background: transparent; white-space: nowrap; }
+    .nav-link:hover { color: var(--primary); background: #f1f5f9; }
+    .nav-link.active-nav { color: var(--primary); background: #ecfdf5; font-weight: 700; }
+
+    /* TOMBOL MENU MOBILE HAMBURGER (DEFAULT SEMBUNYI DI LAPTOP) */
+    .btn-mobile-menu { display: none; background: #f8fafc; border: 1px solid #cbd5e1; font-size: 20px; padding: 6px 12px; border-radius: 8px; cursor: pointer; color: var(--primary); }
+
+    /* OVERLAY & DRAWER MENU HP */
+    .mobile-drawer-overlay { display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.6); z-index: 1050; }
+    .mobile-drawer { position: fixed; top: 0; right: -300px; width: 280px; height: 100%; background: #ffffff; z-index: 1060; box-shadow: -5px 0 25px rgba(0,0,0,0.15); transition: right 0.3s ease-in-out; display: flex; flex-direction: column; padding: 24px 20px; }
+    .mobile-drawer.open { right: 0; }
+    .drawer-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 14px; margin-bottom: 18px; }
+    .drawer-title { font-size: 15px; font-weight: 800; color: var(--primary); }
+    .btn-close-drawer { background: none; border: none; font-size: 24px; color: #94a3b8; cursor: pointer; }
+    .drawer-nav-list { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .drawer-nav-item { background: none; border: none; text-align: left; padding: 12px 14px; font-size: 14px; font-weight: 600; color: #334155; border-radius: 10px; cursor: pointer; transition: 0.2s; }
+    .drawer-nav-item:hover, .drawer-nav-item.active { background: #ecfdf5; color: var(--primary); font-weight: 700; }
+    .btn-drawer-daftar { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer; margin-top: auto; text-align: center; }
+
+    /* MEDIA QUERY RESPONSIVE KHUSUS SMARTPHONE (ANDROID & IOS) */
+    @media (max-width: 850px) {
+      .btn-nav-admin { display: none !important; } /* Sembunyikan Tombol Admin di HP */
+      .btn-nav-daftar { display: none !important; }
+      .sub-navbar { display: none !important; } /* Sembunyikan Bilah Menu Laptop */
+      .btn-mobile-menu { display: block !important; } /* Tampilkan Ikon Menu di HP */
+      .brand-text { display: none; } /* Ringkas teks header agar logo muat */
+      .hero-card { grid-template-columns: 1fr; padding: 30px 20px; }
+      .hero-title { font-size: 26px !important; }
+      .hero-img-box { height: 240px; }
+      .admin-layout { grid-template-columns: 1fr; }
+      .admin-sidebar { border-right: none; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; }
+    }
 
     /* HALAMAN TERPISAH */
     .page-section { display: none; }
@@ -53,7 +85,7 @@
     .hero-meta { font-size: 12px; font-weight: 800; letter-spacing: 1.5px; color: var(--primary); text-transform: uppercase; margin-bottom: 18px; }
     .hero-title { font-size: 40px; font-weight: 800; line-height: 1.25; color: #044e39; margin-bottom: 20px; letter-spacing: -0.5px; }
     .hero-desc { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 30px; }
-    .hero-btns { display: flex; gap: 14px; align-items: center; }
+    .hero-btns { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
     .btn-main { background: #065f46; color: white; padding: 12px 24px; border-radius: 24px; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; border: none; cursor: pointer; }
     .btn-second { background: transparent; color: #334155; border: 1px solid #e2e8f0; padding: 12px 24px; border-radius: 24px; text-decoration: none; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
 
@@ -85,7 +117,7 @@
     .card-agenda { background: white; border-radius: 16px; padding: 24px; border: 1px solid #f1f5f9; border-left: 5px solid var(--primary); box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
 
     /* MODAL */
-    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.6); z-index: 1000; overflow-y: auto; padding: 20px 10px; }
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.6); z-index: 1100; overflow-y: auto; padding: 20px 10px; }
     .modal-box { max-width: 650px; margin: 30px auto; background: white; border-radius: 20px; padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
     .modal-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 14px; margin-bottom: 20px; }
     .modal-head h3 { font-size: 20px; color: var(--primary); font-weight: 800; }
@@ -106,10 +138,8 @@
     input[type="file"] { padding: 6px; background: #f8fafc; }
     textarea { height: 75px; resize: vertical; }
 
-    /* INPUT PENCARIAN */
     .search-input-box { width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 13px; margin: 10px 0; background: #fff; }
 
-    /* KONTROL TIPOGRAFI / FONT */
     .typo-controls { background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 10px; padding: 12px 14px; margin: 12px 0; }
     .typo-controls-title { font-size: 11px; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
     .typo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; }
@@ -123,20 +153,11 @@
     .btn-sm-edit { background: #fef3c7; color: #d97706; border: none; padding: 5px 8px; border-radius: 4px; cursor: pointer; font-size: 12px; margin-right: 4px; }
     .btn-sm-acc { background: #d1fae5; color: #065f46; border: none; padding: 5px 8px; border-radius: 4px; cursor: pointer; font-weight: 700; margin-right: 4px; font-size: 11px; }
     .btn-batal { background: #94a3b8; color: white; padding: 10px 18px; border-radius: 24px; border: none; cursor: pointer; font-size: 13px; font-weight: 700; margin-left: 8px; display: none; }
-
-    @media (max-width: 850px) {
-      .hero-card { grid-template-columns: 1fr; padding: 30px 24px; }
-      .hero-title { font-size: 28px; }
-      .hero-img-box { height: 260px; }
-      .admin-layout { grid-template-columns: 1fr; }
-      .admin-sidebar { border-right: none; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; }
-      nav { display: none; }
-    }
   </style>
 </head>
 <body>
 
-  <!-- NAVBAR -->
+  <!-- HEADER -->
   <header>
     <div class="nav-inner">
       <div class="brand-wrap" onclick="navigasiKe('page-beranda')">
@@ -148,21 +169,45 @@
         <span class="brand-text" id="nav-brand-text">PR IPNU IPPNU LEMBOR</span>
       </div>
 
-      <nav>
+      <!-- TAMPILAN LAPTOP: DAFTAR & ADMIN -->
+      <div class="nav-actions">
+        <button class="btn-nav-daftar" onclick="bukaModalPendaftaran()">Daftar Anggota</button>
+        <button class="btn-nav-admin" onclick="bukaModalLoginAdmin()">Admin</button>
+        <!-- TAMPILAN HP: IKON MENU HAMBURGER -->
+        <button class="btn-mobile-menu" onclick="toggleMobileDrawer(true)">☰</button>
+      </div>
+    </div>
+
+    <!-- BILAH MENU KHUSUS DI BAWAH HEADER (MUNCUL DI LAPTOP) -->
+    <div class="sub-navbar">
+      <div class="sub-navbar-inner">
         <button class="nav-link active-nav" onclick="navigasiKe('page-beranda', this)">Beranda</button>
         <button class="nav-link" onclick="navigasiKe('page-tentang', this)">Tentang</button>
         <button class="nav-link" onclick="navigasiKe('page-pengurus', this)">Jajaran Pengurus</button>
         <button class="nav-link" onclick="navigasiKe('page-agenda', this)">Agenda</button>
-      </nav>
-
-      <div class="nav-actions">
-        <button class="btn-nav-daftar" onclick="bukaModalPendaftaran()">Daftar Anggota</button>
-        <button class="btn-nav-admin" onclick="bukaModalLoginAdmin()">Admin</button>
       </div>
     </div>
   </header>
 
+  <!-- LACI MENU SAMPING KHUSUS HP (ANDROID & IOS) -->
+  <div id="mobile-overlay" class="mobile-drawer-overlay" onclick="toggleMobileDrawer(false)"></div>
+  <div id="mobile-drawer" class="mobile-drawer">
+    <div class="drawer-head">
+      <span class="drawer-title">MENU UTAMA</span>
+      <button class="btn-close-drawer" onclick="toggleMobileDrawer(false)">✕</button>
+    </div>
+    <div class="drawer-nav-list">
+      <button class="drawer-nav-item active" onclick="navigasiMobile('page-beranda', this)">🏠 Beranda</button>
+      <button class="drawer-nav-item" onclick="navigasiMobile('page-tentang', this)">📖 Tentang</button>
+      <button class="drawer-nav-item" onclick="navigasiMobile('page-pengurus', this)">👔 Jajaran Pengurus</button>
+      <button class="drawer-nav-item" onclick="navigasiMobile('page-agenda', this)">📅 Agenda</button>
+    </div>
+    <button class="btn-drawer-daftar" onclick="toggleMobileDrawer(false); bukaModalPendaftaran();">📝 Daftar Anggota</button>
+  </div>
+
+  <!-- ======================================================== -->
   <!-- HALAMAN 1: BERANDA -->
+  <!-- ======================================================== -->
   <div id="page-beranda" class="page-section active-page">
     <main class="hero-container">
       <div class="hero-card">
@@ -197,7 +242,9 @@
     </div>
   </div>
 
+  <!-- ======================================================== -->
   <!-- HALAMAN 2: TENTANG KAMI -->
+  <!-- ======================================================== -->
   <div id="page-tentang" class="page-section">
     <section class="section-wrap">
       <div class="section-header">
@@ -231,7 +278,9 @@
     </section>
   </div>
 
+  <!-- ======================================================== -->
   <!-- HALAMAN 3: JAJARAN PENGURUS -->
+  <!-- ======================================================== -->
   <div id="page-pengurus" class="page-section">
     <section class="section-wrap">
       <div class="section-header">
@@ -242,7 +291,9 @@
     </section>
   </div>
 
+  <!-- ======================================================== -->
   <!-- HALAMAN 4: AGENDA -->
+  <!-- ======================================================== -->
   <div id="page-agenda" class="page-section">
     <section class="section-wrap">
       <div class="section-header">
@@ -781,6 +832,26 @@
     if(document.getElementById('s-tanggal')) document.getElementById('s-tanggal').value = hariIni;
     if(document.getElementById('a-tanggal')) document.getElementById('a-tanggal').value = hariIni;
 
+    // KONTROL DRAWER MENU KHUSUS SMARTPHONE
+    function toggleMobileDrawer(buka) {
+      const drawer = document.getElementById('mobile-drawer');
+      const overlay = document.getElementById('mobile-overlay');
+      if (buka) {
+        overlay.style.display = 'block';
+        setTimeout(() => drawer.classList.add('open'), 10);
+      } else {
+        drawer.classList.remove('open');
+        setTimeout(() => overlay.style.display = 'none', 300);
+      }
+    }
+
+    function navigasiMobile(pageId, btn) {
+      toggleMobileDrawer(false);
+      document.querySelectorAll('.drawer-nav-item').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      navigasiKe(pageId);
+    }
+
     // NAVIGASI HALAMAN TERPISAH
     function navigasiKe(pageId, navBtn) {
       document.querySelectorAll('.page-section').forEach(p => p.classList.remove('active-page'));
@@ -874,7 +945,7 @@
       btn.classList.add('aktif');
     }
 
-    // AMBIL DATA
+    // AMBIL DATA DARI SUPABASE
     async function muatSemua() {
       try {
         const [resCMS, resPengurus, resReg, resKader, resKas, resSurat, resAgenda] = await Promise.all([
@@ -1055,9 +1126,7 @@
       }
     }
 
-    // ==========================================
-    // CRUD: JAJARAN PENGURUS (TAMBAH & EDIT)
-    // ==========================================
+    // CRUD: JAJARAN PENGURUS
     async function handleSimpanPengurus(e) {
       e.preventDefault();
       const idEdit = document.getElementById('edit-id-pengurus').value;
@@ -1124,9 +1193,7 @@
       document.getElementById('btn-batal-pengurus').style.display = 'none';
     }
 
-    // ==========================================
-    // CRUD: DATABASE ANGGOTA (TAMBAH & EDIT)
-    // ==========================================
+    // CRUD: ANGGOTA
     async function handleSimpanAnggota(e) {
       e.preventDefault();
       const idEdit = document.getElementById('edit-id-anggota').value;
@@ -1189,9 +1256,7 @@
       document.getElementById('btn-batal-anggota').style.display = 'none';
     }
 
-    // ==========================================
-    // CRUD: CATATAN KAS (TAMBAH & EDIT)
-    // ==========================================
+    // CRUD: KAS
     async function handleSimpanKas(e) {
       e.preventDefault();
       const idEdit = document.getElementById('edit-id-kas').value;
@@ -1255,9 +1320,7 @@
       document.getElementById('btn-batal-kas').style.display = 'none';
     }
 
-    // ==========================================
-    // CRUD: ARSIP SURAT (TAMBAH & EDIT)
-    // ==========================================
+    // CRUD: SURAT
     async function handleSimpanSurat(e) {
       e.preventDefault();
       const idEdit = document.getElementById('edit-id-surat').value;
@@ -1454,7 +1517,6 @@
 
     // RENDER TABEL ADMIN
     function renderAdminTables() {
-      // 1. Pengurus
       document.getElementById('tabel-pengurus-adm').innerHTML = dataPengurus.map(p => `
         <tr>
           <td><img src="${p.foto_url || ''}" style="width: 32px; height: 32px; border-radius: 50%; object-fit: cover; background: #e2e8f0;"></td>
@@ -1468,7 +1530,6 @@
         </tr>
       `).join('');
 
-      // 2. Pendaftar
       document.getElementById('count-pendaftar').innerText = dataPendaftar.length;
       document.getElementById('tabel-pendaftar-adm').innerHTML = dataPendaftar.map(r => {
         const isSudah = (r.alasan_gabung || '').includes('[Makesta: Sudah]');
@@ -1492,10 +1553,8 @@
         `;
       }).join('');
 
-      // 3. Anggota
       renderBarisAnggota(dataKader);
 
-      // 4. Kas
       document.getElementById('tabel-kas-adm').innerHTML = dataKas.map(k => `
         <tr>
           <td>${k.tanggal}</td>
@@ -1509,10 +1568,8 @@
         </tr>
       `).join('');
 
-      // 5. Surat
       renderBarisSurat(dataSurat);
 
-      // 6. Agenda
       document.getElementById('tabel-agenda-adm').innerHTML = dataAgenda.map(a => `
         <tr><td>${a.nama_kegiatan}</td><td>${a.tanggal}</td><td>${a.lokasi}</td><td><button class="btn-sm-del" onclick="hapusUniversal('agenda', ${a.id})">🗑️</button></td></tr>
       `).join('');
