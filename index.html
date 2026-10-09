@@ -54,7 +54,7 @@
     .drawer-nav-item:hover, .drawer-nav-item.active { background: #ecfdf5; color: var(--primary); font-weight: 700; }
     .btn-drawer-daftar { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer; margin-top: auto; text-align: center; }
 
-    /* BERANDA BARU: GRID POSTINGAN BERITA / ARTIKEL BERSIH */
+    /* BERANDA */
     .hero-container { max-width: 1200px; margin: 30px auto 60px; padding: 0 24px; }
     .beranda-head { margin-bottom: 24px; }
     .beranda-head h2 { font-size: 26px; color: #044e39; font-weight: 800; }
@@ -98,6 +98,15 @@
     .agenda-meta { font-size: 13px; color: #64748b; margin-bottom: 12px; display: flex; flex-direction: column; gap: 4px; }
     .agenda-desc { font-size: 13px; color: #475569; line-height: 1.6; margin-bottom: 18px; flex: 1; }
     .btn-agenda-daftar { display: inline-block; text-align: center; background: var(--primary); color: white; padding: 10px 18px; border-radius: 20px; font-size: 13px; font-weight: 700; text-decoration: none; transition: 0.2s; border: none; }
+
+    /* DASHBOARD 3 KARTU KAS (TOTAL SALDO, MASUK, KELUAR) */
+    .kas-summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 20px; }
+    .kas-card-summary { padding: 18px 20px; border-radius: 14px; border: 1px solid #e2e8f0; display: flex; flex-direction: column; gap: 4px; }
+    .kas-card-label { font-size: 11px; font-weight: 800; letter-spacing: 0.5px; text-transform: uppercase; }
+    .kas-card-value { font-size: 22px; font-weight: 800; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    .kas-saldo { background: #f0fdf4; border-color: #bbf7d0; color: #166534; }
+    .kas-masuk { background: #ecfdf5; border-color: #a7f3d0; color: #065f46; }
+    .kas-keluar { background: #fef2f2; border-color: #fecaca; color: #991b1b; }
 
     /* MODAL */
     .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.6); z-index: 1100; overflow-y: auto; padding: 20px 10px; }
@@ -153,6 +162,7 @@
       .grid-postingan-beranda { grid-template-columns: 1fr; }
       .admin-layout { grid-template-columns: 1fr; }
       .admin-sidebar { border-right: none; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; }
+      .kas-summary-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -203,9 +213,7 @@
     <button class="btn-drawer-daftar" onclick="toggleMobileDrawer(false); bukaModalPendaftaran();">📝 Daftar Anggota</button>
   </div>
 
-  <!-- ======================================================== -->
-  <!-- HALAMAN 1: BERANDA BERSIH (HANYA KARTU JUDUL POSTINGAN) -->
-  <!-- ======================================================== -->
+  <!-- HALAMAN 1: BERANDA -->
   <div id="page-beranda" class="page-section active-page">
     <main class="hero-container">
       <div class="beranda-head">
@@ -216,9 +224,7 @@
     </main>
   </div>
 
-  <!-- ======================================================== -->
-  <!-- MODAL TAMPILAN BACA POSTINGAN LENGKAP PENGUNJUNG -->
-  <!-- ======================================================== -->
+  <!-- MODAL BACA POSTINGAN LENGKAP -->
   <div id="modal-detail-post" class="modal-overlay">
     <div class="modal-box" style="max-width: 750px;">
       <div class="modal-head">
@@ -627,23 +633,42 @@
             </div>
           </div>
 
-          <!-- 8. KAS KEUANGAN -->
+          <!-- 8. KAS KEUANGAN (DILENGKAPI 3 DASHBOARD: TOTAL SALDO, UANG MASUK, UANG KELUAR) -->
           <div id="adm-kas" class="adm-tab-section" style="display: none;">
             <h4 style="margin-bottom: 14px; color: var(--primary);">Catatan Kas Organisasi</h4>
+
+            <!-- 3 DASHBOARD RINGKASAN KAS -->
+            <div class="kas-summary-grid">
+              <div class="kas-card-summary kas-saldo">
+                <span class="kas-card-label">💰 Total Saldo Kas</span>
+                <span class="kas-card-value" id="stat-total-saldo">Rp 0</span>
+              </div>
+              <div class="kas-card-summary kas-masuk">
+                <span class="kas-card-label">📥 Total Uang Masuk</span>
+                <span class="kas-card-value" id="stat-total-masuk">Rp 0</span>
+              </div>
+              <div class="kas-card-summary kas-keluar">
+                <span class="kas-card-label">📤 Total Uang Keluar</span>
+                <span class="kas-card-value" id="stat-total-keluar">Rp 0</span>
+              </div>
+            </div>
+
+            <!-- Form Pencatatan Kas -->
             <form id="form-kas" onsubmit="handleSimpanKas(event)">
               <input type="hidden" id="edit-id-kas" value="">
               <div class="form-grid">
-                <div class="form-group"><label>Tanggal</label><input type="date" id="kas-tanggal" required></div>
+                <div class="form-group"><label>Tanggal Transaksi</label><input type="date" id="kas-tanggal" required></div>
                 <div class="form-group">
                   <label>Jenis Transaksi</label>
                   <select id="kas-jenis"><option value="Masuk">Pemasukan (+)</option><option value="Keluar">Pengeluaran (-)</option></select>
                 </div>
                 <div class="form-group"><label>Nominal (Rp)</label><input type="number" id="kas-jumlah" placeholder="Contoh: 50000" min="1" required></div>
-                <div class="form-group" style="grid-column: 1 / -1;"><label>Keterangan Transaksi</label><input type="text" id="kas-keterangan" placeholder="Contoh: Iuran rutinan" required></div>
+                <div class="form-group" style="grid-column: 1 / -1;"><label>Keterangan Transaksi</label><input type="text" id="kas-keterangan" placeholder="Contoh: Iuran rutinan anggota" required></div>
               </div>
               <button type="submit" id="btn-simpan-kas" class="btn-main">Catat Transaksi Kas</button>
               <button type="button" id="btn-batal-kas" class="btn-batal" onclick="resetFormKas()">Batal</button>
             </form>
+
             <div style="overflow-x: auto; margin-top: 15px;">
               <table>
                 <thead><tr><th>Tanggal</th><th>Keterangan</th><th>Jenis</th><th>Nominal</th><th style="width: 80px; text-align: center;">Aksi</th></tr></thead>
@@ -853,6 +878,7 @@
         renderTentangPublik();
         renderPengurusPublik();
         renderAgendaPublik();
+        hitungDashboardKas();
         renderAdminTables();
       } catch (e) { console.error(e); }
     }
@@ -905,7 +931,7 @@
     }
 
     // ==========================================
-    // 1. BERANDA (KARTU POSTINGAN & MODAL BACA LENGKAP)
+    // 1. BERANDA (POSTINGAN)
     // ==========================================
     function bukaFormBeranda() {
       document.getElementById('panel-form-beranda').style.display = 'block';
@@ -979,7 +1005,6 @@
       bukaFormBeranda();
     }
 
-    // RENDER BERANDA KHUSUS JUDUL & BUKA BACA LENGKAP
     function renderPostinganBeranda() {
       const wadah = document.getElementById('wadah-postingan-beranda');
       if (!wadah) return;
@@ -1014,7 +1039,6 @@
       `).join('');
     }
 
-    // MODAL BACA LENGKAP
     function bukaDetailPostById(id) {
       const p = dataBerandaPost.find(item => item.id === id);
       if (!p) return;
@@ -1043,7 +1067,7 @@
     }
 
     // ==========================================
-    // 2. TENTANG & VISI-MISI (ON-DEMAND)
+    // 2. TENTANG & VISI-MISI
     // ==========================================
     function bukaFormTentang() {
       document.getElementById('panel-form-tentang').style.display = 'block';
@@ -1270,7 +1294,7 @@
     }
 
     // ==========================================
-    // 5. ANGGOTA, KAS, SURAT
+    // 5. ANGGOTA
     // ==========================================
     async function handleSimpanAnggota(e) {
       e.preventDefault();
@@ -1334,6 +1358,29 @@
       document.getElementById('btn-batal-anggota').style.display = 'none';
     }
 
+    // ==========================================
+    // 6. CATATAN KAS (DILENGKAPI 3 DASHBOARD TOTAL)
+    // ==========================================
+    function hitungDashboardKas() {
+      let masuk = 0;
+      let keluar = 0;
+
+      dataKas.forEach(k => {
+        const jml = Number(k.jumlah) || 0;
+        if (k.jenis === 'Masuk') {
+          masuk += jml;
+        } else if (k.jenis === 'Keluar') {
+          keluar += jml;
+        }
+      });
+
+      const saldo = masuk - keluar;
+
+      document.getElementById('stat-total-masuk').innerText = 'Rp ' + masuk.toLocaleString('id-ID');
+      document.getElementById('stat-total-keluar').innerText = 'Rp ' + keluar.toLocaleString('id-ID');
+      document.getElementById('stat-total-saldo').innerText = 'Rp ' + saldo.toLocaleString('id-ID');
+    }
+
     async function handleSimpanKas(e) {
       e.preventDefault();
       const idEdit = document.getElementById('edit-id-kas').value;
@@ -1391,6 +1438,9 @@
       document.getElementById('btn-batal-kas').style.display = 'none';
     }
 
+    // ==========================================
+    // 7. SURAT
+    // ==========================================
     async function handleSimpanSurat(e) {
       e.preventDefault();
       const idEdit = document.getElementById('edit-id-surat').value;
@@ -1450,7 +1500,7 @@
       document.getElementById('btn-batal-surat').style.display = 'none';
     }
 
-    // FILTER
+    // FILTER TABEL
     function filterTabelAnggota() {
       const keyword = (document.getElementById('cari-anggota').value || '').toLowerCase().trim();
       const rows = dataKader.filter(k => 
@@ -1580,9 +1630,9 @@
       muatSemua();
     }
 
-    // TABEL ADMIN LENGKAP
+    // RENDER TABEL ADMIN
     function renderAdminTables() {
-      // 1. Postingan Beranda
+      // 1. Beranda
       document.getElementById('tabel-beranda-adm').innerHTML = dataBerandaPost.map(p => `
         <tr>
           <td><img src="${p.foto_url || ''}" style="width: 45px; height: 35px; border-radius: 4px; object-fit: cover; background: #e2e8f0;"></td>
@@ -1596,7 +1646,7 @@
         </tr>
       `).join('');
 
-      // 2. Tentang & Visi Misi
+      // 2. Tentang
       document.getElementById('tabel-tentang-adm').innerHTML = dataTentangList.map(t => `
         <tr>
           <td><b>${t.judul}</b></td>
@@ -1604,7 +1654,7 @@
           <td>${(t.visi || '').substring(0, 45)}...</td>
           <td>${(t.misi || '').substring(0, 45)}...</td>
           <td style="white-space: nowrap; text-align: center;">
-            <button class="btn-sm-edit" title="Edit Profil & Visi Misi" onclick="editTentangVisi(${t.id})">✏️</button>
+            <button class="btn-sm-edit" title="Edit Profil" onclick="editTentangVisi(${t.id})">✏️</button>
             <button class="btn-sm-del" title="Hapus Profil" onclick="hapusUniversal('profil_ranting', ${t.id})">🗑️</button>
           </td>
         </tr>
