@@ -28,24 +28,24 @@
     .brand-logo { max-height: 42px; object-fit: contain; }
     .brand-text { font-size: 13px; color: var(--text-muted); font-weight: 600; border-left: 2px solid #e2e8f0; padding-left: 12px; }
 
-    /* TOMBOL AKSI ATAS (DEFAULT LAPTOP) */
+    /* TOMBOL AKSI ATAS (LAPTOP) */
     .nav-actions { display: flex; align-items: center; gap: 10px; }
     .btn-nav-daftar { background: #065f46; color: white !important; padding: 9px 18px; border-radius: 20px; font-size: 13px; font-weight: 700; text-decoration: none; border: none; cursor: pointer; transition: 0.2s; }
     .btn-nav-daftar:hover { background: #044e39; }
     .btn-nav-admin { background: transparent; color: #334155; border: 1px solid #cbd5e1; padding: 8px 16px; border-radius: 20px; font-size: 13px; font-weight: 600; cursor: pointer; transition: 0.2s; }
     .btn-nav-admin:hover { background: #f8fafc; border-color: #94a3b8; }
 
-    /* BILAH MENU DI BAWAH HEADER (DEFAULT LAPTOP) */
+    /* BILAH MENU SUB-NAVBAR (LAPTOP) */
     .sub-navbar { background: #f8fafc; border-top: 1px solid #f1f5f9; border-bottom: 1px solid #e2e8f0; }
     .sub-navbar-inner { max-width: 1200px; margin: auto; display: flex; align-items: center; gap: 8px; padding: 8px 24px; }
     .nav-link { text-decoration: none; color: #334155; font-size: 13px; font-weight: 600; padding: 7px 16px; border-radius: 20px; transition: 0.2s; cursor: pointer; border: none; background: transparent; white-space: nowrap; }
     .nav-link:hover { color: var(--primary); background: #f1f5f9; }
     .nav-link.active-nav { color: var(--primary); background: #ecfdf5; font-weight: 700; }
 
-    /* TOMBOL MENU MOBILE HAMBURGER (DEFAULT SEMBUNYI DI LAPTOP) */
+    /* TOMBOL MENU MOBILE HAMBURGER */
     .btn-mobile-menu { display: none; background: #f8fafc; border: 1px solid #cbd5e1; font-size: 20px; padding: 6px 12px; border-radius: 8px; cursor: pointer; color: var(--primary); }
 
-    /* OVERLAY & DRAWER MENU HP */
+    /* DRAWER MENU HP */
     .mobile-drawer-overlay { display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.6); z-index: 1050; }
     .mobile-drawer { position: fixed; top: 0; right: -300px; width: 280px; height: 100%; background: #ffffff; z-index: 1060; box-shadow: -5px 0 25px rgba(0,0,0,0.15); transition: right 0.3s ease-in-out; display: flex; flex-direction: column; padding: 24px 20px; }
     .mobile-drawer.open { right: 0; }
@@ -57,31 +57,12 @@
     .drawer-nav-item:hover, .drawer-nav-item.active { background: #ecfdf5; color: var(--primary); font-weight: 700; }
     .btn-drawer-daftar { background: var(--primary); color: white; border: none; padding: 12px; border-radius: 12px; font-weight: 700; font-size: 14px; cursor: pointer; margin-top: auto; text-align: center; }
 
-    /* MEDIA QUERY RESPONSIVE KHUSUS SMARTPHONE (ANDROID & IOS) */
-    @media (max-width: 850px) {
-      .btn-nav-admin { display: none !important; } /* Sembunyikan Tombol Admin di HP */
-      .btn-nav-daftar { display: none !important; }
-      .sub-navbar { display: none !important; } /* Sembunyikan Bilah Menu Laptop */
-      .btn-mobile-menu { display: block !important; } /* Tampilkan Ikon Menu di HP */
-      .brand-text { display: none; } /* Ringkas teks header agar logo muat */
-      .hero-card { grid-template-columns: 1fr; padding: 30px 20px; }
-      .hero-title { font-size: 26px !important; }
-      .hero-img-box { height: 240px; }
-      .admin-layout { grid-template-columns: 1fr; }
-      .admin-sidebar { border-right: none; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; }
-    }
-
-    /* HALAMAN TERPISAH */
-    .page-section { display: none; }
-    .page-section.active-page { display: block; animation: fadeIn 0.3s ease-in-out; }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* BERANDA */
+    /* BERANDA / HERO */
     .hero-container { max-width: 1200px; margin: 30px auto; padding: 0 24px; }
     .hero-card { background: #ffffff; border-radius: 28px; padding: 45px 50px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; box-shadow: 0 10px 40px rgba(0,0,0,0.03); border: 1px solid #f1f5f9; }
+    .hero-text-content { order: 1; }
+    .hero-img-box { order: 2; position: relative; width: 100%; height: 380px; border-radius: 22px; overflow: hidden; background: #f1f5f9; box-shadow: 0 12px 30px rgba(6,95,70,0.08); }
+    .hero-img { width: 100%; height: 100%; object-fit: cover; }
     .hero-meta { font-size: 12px; font-weight: 800; letter-spacing: 1.5px; color: var(--primary); text-transform: uppercase; margin-bottom: 18px; }
     .hero-title { font-size: 40px; font-weight: 800; line-height: 1.25; color: #044e39; margin-bottom: 20px; letter-spacing: -0.5px; }
     .hero-desc { font-size: 15px; color: var(--text-muted); line-height: 1.7; margin-bottom: 30px; }
@@ -89,19 +70,15 @@
     .btn-main { background: #065f46; color: white; padding: 12px 24px; border-radius: 24px; text-decoration: none; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; border: none; cursor: pointer; }
     .btn-second { background: transparent; color: #334155; border: 1px solid #e2e8f0; padding: 12px 24px; border-radius: 24px; text-decoration: none; font-weight: 600; font-size: 14px; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; }
 
-    .hero-img-box { position: relative; width: 100%; height: 380px; border-radius: 22px; overflow: hidden; background: #f1f5f9; box-shadow: 0 12px 30px rgba(6,95,70,0.08); }
-    .hero-img { width: 100%; height: 100%; object-fit: cover; }
-
     /* SECTIONS */
     .section-wrap { max-width: 1200px; margin: 40px auto 60px; padding: 0 24px; }
     .section-header { text-align: center; margin-bottom: 36px; }
     .section-header h2 { font-size: 28px; color: #044e39; font-weight: 800; }
     .section-header p { font-size: 14px; color: var(--text-muted); margin-top: 6px; }
-
     .card-box { background: white; border-radius: 20px; padding: 35px; border: 1px solid #f1f5f9; box-shadow: 0 4px 20px rgba(0,0,0,0.02); margin-bottom: 24px; }
     .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
 
-    /* PENGURUS */
+    /* PENGURUS & AGENDA */
     .grid-pengurus { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 24px; }
     .card-pengurus { background: white; border-radius: 18px; padding: 22px 18px; text-align: center; border: 1px solid #f1f5f9; box-shadow: 0 6px 20px rgba(0,0,0,0.02); transition: 0.3s; }
     .card-pengurus:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.06); }
@@ -112,18 +89,15 @@
     .badge-ipnu { background: #d1fae5; color: #065f46; }
     .badge-ippnu { background: #ccfbf1; color: #0f766e; }
 
-    /* AGENDA */
     .grid-agenda { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
     .card-agenda { background: white; border-radius: 16px; padding: 24px; border: 1px solid #f1f5f9; border-left: 5px solid var(--primary); box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
 
-    /* MODAL */
+    /* MODAL & DASHBOARD ADMIN */
     .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(15,23,42,0.6); z-index: 1100; overflow-y: auto; padding: 20px 10px; }
     .modal-box { max-width: 650px; margin: 30px auto; background: white; border-radius: 20px; padding: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.2); }
     .modal-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; padding-bottom: 14px; margin-bottom: 20px; }
     .modal-head h3 { font-size: 20px; color: var(--primary); font-weight: 800; }
     .btn-close-modal { background: none; border: none; font-size: 22px; cursor: pointer; color: #94a3b8; }
-
-    /* ADMIN DASHBOARD */
     .admin-box { max-width: 1100px; }
     .admin-layout { display: grid; grid-template-columns: 240px 1fr; gap: 20px; min-height: 520px; }
     .admin-sidebar { border-right: 1px solid #f1f5f9; padding-right: 14px; display: flex; flex-direction: column; gap: 6px; }
@@ -139,13 +113,11 @@
     textarea { height: 75px; resize: vertical; }
 
     .search-input-box { width: 100%; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 13px; margin: 10px 0; background: #fff; }
-
     .typo-controls { background: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 10px; padding: 12px 14px; margin: 12px 0; }
     .typo-controls-title { font-size: 11px; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 8px; }
     .typo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 8px; }
 
     .img-preview { width: 70px; height: 70px; object-fit: contain; border-radius: 8px; border: 1px solid #cbd5e1; margin-top: 6px; display: none; background: #f8fafc; }
-
     table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 12px; }
     th, td { border: 1px solid #e2e8f0; padding: 8px 10px; text-align: left; vertical-align: middle; }
     th { background: #f8fafc; font-weight: 700; }
@@ -153,6 +125,62 @@
     .btn-sm-edit { background: #fef3c7; color: #d97706; border: none; padding: 5px 8px; border-radius: 4px; cursor: pointer; font-size: 12px; margin-right: 4px; }
     .btn-sm-acc { background: #d1fae5; color: #065f46; border: none; padding: 5px 8px; border-radius: 4px; cursor: pointer; font-weight: 700; margin-right: 4px; font-size: 11px; }
     .btn-batal { background: #94a3b8; color: white; padding: 10px 18px; border-radius: 24px; border: none; cursor: pointer; font-size: 13px; font-weight: 700; margin-left: 8px; display: none; }
+
+    .page-section { display: none; }
+    .page-section.active-page { display: block; animation: fadeIn 0.3s ease-in-out; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* MEDIA QUERY RESPONSIVE KHUSUS SMARTPHONE (ANDROID & IOS) */
+    @media (max-width: 850px) {
+      .nav-inner { padding: 10px 16px; }
+      .brand-wrap { gap: 6px; }
+      .brand-logo { max-height: 32px; }
+      
+      /* JUDUL HEADER TETAP MUNCUL DI HP */
+      .brand-text {
+        display: block !important;
+        font-size: 11px !important;
+        padding-left: 8px !important;
+        line-height: 1.2;
+        max-width: 140px;
+      }
+      
+      /* SEMBUNYIKAN MENU & TOMBOL DESKTOP DI HP */
+      .btn-nav-admin { display: none !important; }
+      .btn-nav-daftar { display: none !important; }
+      .sub-navbar { display: none !important; }
+      .btn-mobile-menu { display: block !important; }
+
+      /* BERANDA HP: FOTO BANNER DI ATAS, TEKS DI BAWAH */
+      .hero-card {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 24px 18px !important;
+        gap: 24px !important;
+      }
+      .hero-img-box {
+        order: 1 !important;
+        width: 100% !important;
+        height: 220px !important;
+      }
+      .hero-text-content {
+        order: 2 !important;
+      }
+      .hero-title {
+        font-size: 24px !important;
+        line-height: 1.3 !important;
+        margin-bottom: 14px !important;
+      }
+      .hero-desc {
+        font-size: 14px !important;
+        margin-bottom: 20px !important;
+      }
+      .admin-layout { grid-template-columns: 1fr; }
+      .admin-sidebar { border-right: none; border-bottom: 1px solid #e2e8f0; padding-bottom: 12px; }
+    }
   </style>
 </head>
 <body>
@@ -164,7 +192,7 @@
         <div class="logos-container">
           <img id="nav-logo-ipnu" src="" alt="Logo IPNU" class="brand-logo" style="display: none;">
           <img id="nav-logo-ippnu" src="" alt="Logo IPPNU" class="brand-logo" style="display: none;">
-          <span id="nav-brand-fallback" style="font-size: 24px;">🌱</span>
+          <span id="nav-brand-fallback" style="font-size: 22px;">🌱</span>
         </div>
         <span class="brand-text" id="nav-brand-text">PR IPNU IPPNU LEMBOR</span>
       </div>
@@ -178,7 +206,7 @@
       </div>
     </div>
 
-    <!-- BILAH MENU KHUSUS DI BAWAH HEADER (MUNCUL DI LAPTOP) -->
+    <!-- BILAH MENU KHUSUS DI BAWAH HEADER (LAPTOP/MACBOOK) -->
     <div class="sub-navbar">
       <div class="sub-navbar-inner">
         <button class="nav-link active-nav" onclick="navigasiKe('page-beranda', this)">Beranda</button>
@@ -205,13 +233,16 @@
     <button class="btn-drawer-daftar" onclick="toggleMobileDrawer(false); bukaModalPendaftaran();">📝 Daftar Anggota</button>
   </div>
 
-  <!-- ======================================================== -->
   <!-- HALAMAN 1: BERANDA -->
-  <!-- ======================================================== -->
   <div id="page-beranda" class="page-section active-page">
     <main class="hero-container">
       <div class="hero-card">
-        <div>
+        <!-- FOTO BANNER (DI HP OTOMATIS TAMPIL DI ATAS) -->
+        <div class="hero-img-box">
+          <img id="img-hero-banner" src="" alt="Foto Pengurus" class="hero-img">
+        </div>
+        <!-- KONTEN TEKS BERANDA -->
+        <div class="hero-text-content">
           <div class="hero-meta" id="txt-hero-tagline">PR IPNU IPPNU LEMBOR — WE ARE RESILIENT LEADER</div>
           <h1 class="hero-title" id="txt-hero-judul">Bertumbuh Bersama. Menguatkan Karakter.</h1>
           <p class="hero-desc" id="txt-hero-subjudul">Setiap proses belajar membuka ruang untuk mengenal diri, mengabdi pada umat, dan berkembang bersama generasi muda Desa Lembor.</p>
@@ -219,9 +250,6 @@
             <button class="btn-main" onclick="bukaModalPendaftaran()">Gabung Sekarang ↗</button>
             <button class="btn-second" onclick="navigasiKe('page-tentang')">Kenali Organisasi →</button>
           </div>
-        </div>
-        <div class="hero-img-box">
-          <img id="img-hero-banner" src="" alt="Foto Pengurus" class="hero-img">
         </div>
       </div>
     </main>
@@ -242,9 +270,7 @@
     </div>
   </div>
 
-  <!-- ======================================================== -->
   <!-- HALAMAN 2: TENTANG KAMI -->
-  <!-- ======================================================== -->
   <div id="page-tentang" class="page-section">
     <section class="section-wrap">
       <div class="section-header">
@@ -278,9 +304,7 @@
     </section>
   </div>
 
-  <!-- ======================================================== -->
   <!-- HALAMAN 3: JAJARAN PENGURUS -->
-  <!-- ======================================================== -->
   <div id="page-pengurus" class="page-section">
     <section class="section-wrap">
       <div class="section-header">
@@ -291,9 +315,7 @@
     </section>
   </div>
 
-  <!-- ======================================================== -->
   <!-- HALAMAN 4: AGENDA -->
-  <!-- ======================================================== -->
   <div id="page-agenda" class="page-section">
     <section class="section-wrap">
       <div class="section-header">
@@ -832,7 +854,7 @@
     if(document.getElementById('s-tanggal')) document.getElementById('s-tanggal').value = hariIni;
     if(document.getElementById('a-tanggal')) document.getElementById('a-tanggal').value = hariIni;
 
-    // KONTROL DRAWER MENU KHUSUS SMARTPHONE
+    // DRAWER MENU MOBILE
     function toggleMobileDrawer(buka) {
       const drawer = document.getElementById('mobile-drawer');
       const overlay = document.getElementById('mobile-overlay');
@@ -978,7 +1000,7 @@
       } catch (e) { console.error(e); }
     }
 
-    // TERAPKAN CMS
+    // TERAPKAN CMS KE WEBSITE
     function pasangTampilanCMS() {
       if (dataCMS.logo_url) {
         document.getElementById('nav-logo-ipnu').src = dataCMS.logo_url;
@@ -1059,7 +1081,7 @@
       };
     }
 
-    // SIMPAN CMS & TIPOGRAFI
+    // SIMPAN CMS
     async function handleSimpanCMS(e) {
       e.preventDefault();
       try {
@@ -1126,7 +1148,7 @@
       }
     }
 
-    // CRUD: JAJARAN PENGURUS
+    // CRUD: PENGURUS
     async function handleSimpanPengurus(e) {
       e.preventDefault();
       const idEdit = document.getElementById('edit-id-pengurus').value;
